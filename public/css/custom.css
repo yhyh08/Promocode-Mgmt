@@ -1,0 +1,23 @@
+.auth{
+    height: 100vh;
+}
+
+.back-img{
+    background-image: url("../img/black-auth.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.fp{
+    margin-right: -45px;
+}
+
+.img-size{
+    width: 15% !important;
+}
+
+.login-google:hover{
+    background-color: #e6e6e6 !important;
+}

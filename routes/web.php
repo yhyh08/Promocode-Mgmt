@@ -21,6 +21,17 @@ Route::get('/authLayout', function () {
     return view('auth/authLayout');
 });
 
+Route::get('google',function(){
+    return view('googleAuth');
+});
+
+// Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
+Route::get('auth/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('/auth/google/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
+// Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
+
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -15,6 +15,7 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         //
     ];
+    protected $namespace = 'App\Http\Controllers\Auth';
 
     /**
      * Register any authentication / authorization services.

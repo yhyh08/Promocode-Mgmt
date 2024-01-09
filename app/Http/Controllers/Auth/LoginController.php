@@ -70,9 +70,7 @@ class LoginController extends Controller
             }
 
         } catch (Exception $e) {
-            // return redirect('auth/google');
-            // return redirect('welcome');
-            dd($e);
+            return redirect('auth/google');
         }
     }
 }

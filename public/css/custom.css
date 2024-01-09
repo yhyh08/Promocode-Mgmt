@@ -1,3 +1,7 @@
+body {
+    overflow-x: hidden;
+}
+
 .auth{
     height: 100vh;
 }
@@ -20,4 +24,34 @@
 
 .login-google:hover{
     background-color: #e6e6e6 !important;
+}
+
+/* Sidebar */
+.sidebar-logo{
+    width: 180px;
+}
+
+@media screen and (max-width: 576px) {
+    .sidebar-logo{
+        width: 80px;
+    }
+}
+.nav-name{
+    color: white !important;
+}
+.nav-link.active{
+    color: #F59E0B !important;
+    background-color: transparent !important;
+}
+.nav-name:hover{
+    color: #ff6666 !important;
+}
+
+.nav-drop{
+    color: #b3b3b3 !important;
+}
+/* End Sidebar */
+
+.nav-top{
+    margin-bottom: .15rem;
 }

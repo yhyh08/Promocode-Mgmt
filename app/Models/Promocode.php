@@ -24,5 +24,5 @@ class Promocode extends Model
         'status',
         'user_id',
         'code_detail_id'
-    ];
+    ];                    
 }

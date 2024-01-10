@@ -16,7 +16,7 @@ return new class extends Migration
             $table->double('minimum_price', 8,2);
             $table->double('discount_amount', 8,2);
             $table->string('discount_type_id');
-            $table->string('term_condition_id');
+            $table->json('term_condition_id');
             $table->timestamps();
         });
     }

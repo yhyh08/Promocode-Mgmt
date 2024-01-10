@@ -9,7 +9,7 @@ use App\Models\TermCondition;
 
 class TermConditionController extends Controller
 {
-    function create(){
+    public function create(){
         $r=request();
 
         $add=TermCondition::create([
@@ -25,18 +25,18 @@ class TermConditionController extends Controller
         return view('admin.termCondition.create');
     }
 
-    function view(){
-        $term=TermCondition::all();
+    public function view(){
+        $term=TermCondition::paginate(10);
 
         return view('admin.termCondition.index')->with('term', $term);
     }
 
-    function edit($id){
+    public function edit($id){
         $term=TermCondition::all()->where('id' , $id);
         return view('admin.termCondition.edit')->with('term', $term);
     }
 
-    function update(){
+    public function update(){
         $r=request();
         $term=TermCondition::find($r->id);
         
@@ -47,7 +47,7 @@ class TermConditionController extends Controller
         return redirect()->route('termCondition.index');
     }
 
-    function delete($id){
+    public function delete($id){
         $term=TermCondition::find($id);
         $term->delete(); 
         return redirect()->route('termCondition.index');

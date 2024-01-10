@@ -6,45 +6,34 @@
         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             <li class="nav-item">
                 <a href="{{ route('home') }}" class="nav-link align-middle nav-name {{ request()->is('home') ? 'active' : '' }}">
-                    <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                    <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
                 </a>
-            </li>
-            <li>
-                <a href="#submenu1" data-bs-toggle="collapse" class="nav-link align-middle nav-name">
-                    <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline nav-name">Promocode</span> </a>
-                <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                    <li class="w-100">
-                        <a href="{{ route('home') }}" class="nav-link align-middle nav-name {{ request()->is('home') ? 'active' : '' }}">
-                    <i class="fs-4 bi-archive"></i> <span class="ms-1 d-none d-sm-inline">Item</span>
-                </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link nav-drop"> <span class="d-none d-sm-inline nav-drop">Item</span> 2 </a>
-                    </li>
-                </ul>
             </li>
             <li class="nav-item">
-                <a href="{{ route('home') }}" class="nav-link align-middle nav-name {{ request()->is('home') ? 'active' : '' }}">
-                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Order</span>
+                <a href="{{ route('promocode.index') }}" class="nav-link align-middle nav-name {{ request()->is('promocode') ? 'active' : '' }}"> 
+                    <i class="fs-4 bi-shop"></i> <span class="ms-1 d-none d-sm-inline">Manage Promocode</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('codeDetail.index') }}" class="nav-link align-middle nav-name {{ request()->is('code_detail') ? 'active' : '' }}"> 
+                    <i class="fs-4 bi-gift"></i> <span class="ms-1 d-none d-sm-inline">Manage Code Detail</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('discountType.index') }}" class="nav-link align-middle nav-name {{ request()->is('discount_type') ? 'active' : '' }}"> 
+                    <i class="fs-4 bi-wallet2"></i> <span class="ms-1 d-none d-sm-inline">Manage Discount Type</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('termCondition.index') }}" class="nav-link align-middle nav-name {{ request()->is('term_condition') ? 'active' : '' }}"> 
+                    <i class="fs-4 bi-card-checklist"></i> <span class="ms-1 d-none d-sm-inline">Manage T&C</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('redeem') }}" class="nav-link align-middle nav-name {{ request()->is('redeem') ? 'active' : '' }}">
-                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Redeem</span>
+                    <i class="fs-4 bi-ticket-perforated"></i> <span class="ms-1 d-none d-sm-inline">Redeem</span>
                 </a>
             </li>
-            {{-- <li>
-                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link align-middle nav-name">
-                    <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline nav-name">Products</span> </a>
-                    <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                    <li class="w-100">
-                        <a href="#" class="nav-link nav-drop"> <span class="d-none d-sm-inline nav-drop">Product</span> 1</a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link nav-drop"> <span class="d-none d-sm-inline nav-drop">Product</span> 2</a>
-                    </li>
-                </ul>
-            </li> --}}
         </ul>
     </div>
 </div>

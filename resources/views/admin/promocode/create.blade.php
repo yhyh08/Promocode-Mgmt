@@ -1,11 +1,9 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
 <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-6">
-        <br><br>
-        <h3>Add New Promo Code</h3>
+    <div class="container-fluid m-5 all-view">
+        <h3 class="pb-2">Add New Promo Code</h3>
         <form action="{{ route('promocode.create') }}" method="post" enctype='multipart/form-data' >
             @csrf
             <div class="form-group">
@@ -18,7 +16,7 @@
             </div>
             <div class="form-group">
 				<label for="limit">Limit</label>
-				<input class="form-control" type="num" id="limit" name="limit" >
+				<input class="form-control" type="number" id="limit" name="limit" >
             </div>
             <div class="form-group">
                 <label for="expired_date">Expired Date</label>
@@ -56,12 +54,10 @@
                     </div>
                 </div>
                 @endforeach
-				<!-- <input class="form-control" type="text" id="type" name="type" required> -->
             </div>
-            <button type="submit" class="btn btn-primary">Add New</button>            
+            <button type="submit" class="btn btn-primary btn-clr">Add New</button>            
         </form>
-        <br><br>
     </div>
-    <div class="col-sm-3"></div>
 </div>
+
 @endsection

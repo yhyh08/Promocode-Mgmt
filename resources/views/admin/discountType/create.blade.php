@@ -1,11 +1,9 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
 <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-6">
-        <br><br>
-        <h3>Add Discount Type</h3>
+    <div class="container-fluid m-5 all-view">
+        <h3 class="pb-2">Add Discount Type</h3>
         <form action="{{ route('discountType.create') }}" method="post" enctype='multipart/form-data' >
             @csrf
             <div class="form-group">
@@ -34,10 +32,9 @@
                 <label for="remark">Remark</label>
                 <input type="text" name="remark" id="remark" class="form-control" >
             </div>
-            <button type="submit" class="btn btn-primary">Add New</button>            
+            <button type="submit" class="btn btn-primary btn-clr">Add New</button>            
         </form>
-        <br><br>
     </div>
-    <div class="col-sm-3"></div>
 </div>
+
 @endsection

@@ -1,11 +1,9 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
 <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-6">
-        <br><br>
-        <h3>Add Code Detail</h3>
+    <div class="container-fluid m-5 all-view">
+        <h3 class="pb-2">Add Code Detail</h3>
         <form action="{{ route('codeDetail.create') }}" method="post" enctype='multipart/form-data' >
             @csrf
             <div class="form-group">
@@ -13,7 +11,7 @@
 				<input class="form-control" type="number" id="price" name="price" required>
             </div>
             <div class="form-group">
-				<label for="amount">Discount amount</label>
+				<label for="amount">Discount Amount</label>
 				<input class="form-control" type="number" id="amount" name="amount" required>
             </div>
             <div class="form-group">
@@ -26,18 +24,16 @@
 				<!-- <input class="form-control" type="text" id="category" name="category" required> -->
             </div>
             <div class="form-group">
-				<label for="condition">Term Condition</label>
-                <select name="condition" class="form-control">
+                <label for="condition">Terms and Conditions</label>
+                <select multiple class="form-control" name="condition[]">
                     @foreach ($condition as $condition)
                         <option value="{{ $condition->id }}">{{ $condition->title }}</option>
                     @endforeach
                 </select>
-				<!-- <input class="form-control" type="text" id="type" name="type" required> -->
             </div>
-            <button type="submit" class="btn btn-primary">Add New</button>            
+            <button type="submit" class="btn btn-primary btn-clr">Add New</button>            
         </form>
-        <br><br>
     </div>
-    <div class="col-sm-3"></div>
 </div>
+
 @endsection

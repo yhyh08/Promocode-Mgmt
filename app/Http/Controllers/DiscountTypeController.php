@@ -9,7 +9,7 @@ use App\Models\DiscountType;
 
 class DiscountTypeController extends Controller
 {
-    function create(){
+    public function create(){
         $r=request();
 
         $add=DiscountType::create([
@@ -30,8 +30,8 @@ class DiscountTypeController extends Controller
         return view('admin.discountType.create' , compact('category' , 'type'));
     }
 
-    function view(){
-        $type=DiscountType::all();
+    public function view(){
+        $type=DiscountType::paginate(10);
 
         $type->each(function ($type) {
             $type->category = DiscountType::CATEGORY_SELECT[$type->category];
@@ -44,7 +44,7 @@ class DiscountTypeController extends Controller
         return view('admin.discountType.index')->with('type', $type);
     }
 
-    function edit($id){
+    public function edit($id){
         $type=DiscountType::all()->where('id' , $id);
 
         $category = DiscountType::CATEGORY_SELECT;
@@ -57,7 +57,7 @@ class DiscountTypeController extends Controller
         ;
     }
 
-    function update(){
+    public function update(){
         $r=request();
         $type=DiscountType::find($r->id);
         
@@ -70,7 +70,7 @@ class DiscountTypeController extends Controller
         return redirect()->route('discountType.index');
     }
 
-    function delete($id){
+    public function delete($id){
         $type=DiscountType::find($id);
         $type->delete(); 
         return redirect()->route('discountType.index');

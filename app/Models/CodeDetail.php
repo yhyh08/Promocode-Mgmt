@@ -20,8 +20,18 @@ class CodeDetail extends Model
         return $this->belongsTo(DiscountType::class, 'discount_type_id');
     }
 
-    public function termCondition()
+    // public function termCondition()
+    // {
+    //     return $this->belongsTo(TermCondition::class);
+    // }
+
+    public function setTermAttribute($value)
     {
-        return $this->belongsTo(TermCondition::class);
+        $this->attributes['term_condition_id'] = json_encode($value);
+    }
+
+    public function getTermAttribute($value)
+    {
+        return $this->attributes['term_condition_id'] = json_decode($value);
     }
 }

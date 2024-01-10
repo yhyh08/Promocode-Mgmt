@@ -55,3 +55,23 @@ body {
 .nav-top{
     margin-bottom: .15rem;
 }
+
+/* Manage */
+.all-view{
+    width: 90% !important;
+}
+
+.clr-icon{
+    color: #F59E0B; 
+}
+
+.btn-clr{
+    background-color: #F43F5E !important;
+    border: 0 !important;
+    margin-top: 20px;
+}
+
+.btn-clr:hover{
+    background-color: #f10e34 !important;
+}
+/* End Manage */

@@ -1,11 +1,9 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
 <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-6">
-        <br><br>
-        <h3>Add Term Condition</h3>
+    <div class="container-fluid m-5 all-view">
+        <h3 class="pb-2">Add Term Condition</h3>
         <form action="{{ route('termCondition.create') }}" method="post" enctype='multipart/form-data' >
             @csrf
             <div class="form-group">
@@ -16,10 +14,9 @@
 				<label for="content">Content</label>
 				<input class="form-control" type="text" id="content" name="content" >
             </div>
-            <button type="submit" class="btn btn-primary">Add New</button>            
+            <button type="submit" class="btn btn-primary btn-clr">Add New</button>            
         </form>
-        <br><br>
     </div>
-    <div class="col-sm-3"></div>
 </div>
+
 @endsection

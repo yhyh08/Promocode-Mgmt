@@ -11,7 +11,7 @@ use App\Models\CodeDetail;
 
 class PromocodeController extends Controller
 {
-    function create(){
+    public function create(){
         $r=request();
 
         $newPromoCode = Str::random(8);
@@ -40,19 +40,19 @@ class PromocodeController extends Controller
         return view('admin.promocode.create')->with('detail', $detail);
     }
 
-    function view(){
-        $promo=Promocode::all();
+    public function view(){
+        $promo=Promocode::paginate(10);
 
         return view('admin.promocode.index')->with('promocode', $promo);
     }
 
-    function edit($id){
+    public function edit($id){
         $promo=Promocode::all()->where('id' , $id);
         
         return view('admin.promocode.edit')->with('promo', $promo);
     }
 
-    function update(){
+    public function update(){
         $r=request();
         $promo=Promocode::find($r->id);
         
@@ -64,7 +64,7 @@ class PromocodeController extends Controller
         return redirect()->route('promocode.index');
     }
 
-    function delete($id){
+    public function delete($id){
         $promo=Promocode::find($id);
         $promo->delete(); 
         return redirect()->route('promocode.index');

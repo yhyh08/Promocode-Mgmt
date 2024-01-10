@@ -72,7 +72,7 @@ class PromocodeController extends Controller
 
     public function updateStatus(Request $request)
     {
-        dd();
+        // dd();
         $promo = Promocode::findOrFail($request->promoId);
         $promo->status = $request->status;
         $promo->save();

@@ -11,7 +11,7 @@ use App\Models\TermCondition;
 
 class CodeDetailController extends Controller
 {
-    public function create(){
+    public function create() {
         $r=request();
         
         $add=CodeDetail::create([
@@ -24,15 +24,14 @@ class CodeDetailController extends Controller
         return redirect()->route('codeDetail.index' );
     }
 
-    public function add()
-    {
+    public function add() {
         $type = DiscountType::all();
         $condition = TermCondition::all();
-        // dd($type);
+        
         return view('admin.codeDetail.create' , compact('type' , 'condition'));
     }
 
-    public function view(){
+    public function view() {
         $condition = TermCondition::all();
         
         $detail=DB::table('code_details')
@@ -46,8 +45,14 @@ class CodeDetailController extends Controller
         ->with('condition', $condition);
     }
 
-    public function edit($id){
-        $detail=CodeDetail::all()->where('id' , $id);
+    function edit($id) {
+        $detail=DB::table('code_details')
+        ->leftJoin('discount_types', 'code_details.discount_type_id', '=', 'discount_types.id')
+        ->leftJoin('term_conditions', 'code_details.term_condition_id', '=', 'term_conditions.id')
+        ->select('code_details.*', 'discount_types.name as discount_type_name', 'term_conditions.title as term_condition_title')
+        ->where('code_details.id' , $id)
+        ->get();
+        
         $type = DiscountType::all();
         $condition = TermCondition::all();
         
@@ -57,7 +62,7 @@ class CodeDetailController extends Controller
         ->with('condition', $condition);
     }
 
-    public function update(){
+    public function update() {
         $r=request();
         $detail=CodeDetail::find($r->id);
         
@@ -70,7 +75,7 @@ class CodeDetailController extends Controller
         return redirect()->route('codeDetail.index');
     }
 
-    public function delete($id){
+    public function delete($id) {
         $detail=CodeDetail::find($id);
         $detail->delete(); 
         return redirect()->route('codeDetail.index');

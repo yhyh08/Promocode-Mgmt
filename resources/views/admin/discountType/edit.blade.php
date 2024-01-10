@@ -16,7 +16,7 @@
                 <label for="category">Category</label>
                 <select  name="category" class="form-control">
                     @foreach ($category as $value => $label)
-                        <option  value="{{ $value }}">{{ $label }}</option>
+                        <option  value="{{ $value }}" {{ $type->category == $value ? 'selected' : '' }}>{{ $label }}</option>
                     @endforeach
                 </select>
             </div>
@@ -25,7 +25,7 @@
                 <label for="type">Discount Type</label>
                 <select name="type" class="form-control">
                     @foreach ($method as $value => $label)
-                        <option value="{{ $value }}">{{ $label }}</option>
+                        <option value="{{ $value }}" {{ $type->type == $value ? 'selected' : '' }}>{{ $label }}</option>
                     @endforeach
                 </select>
             <!-- <input class="form-control" type="text" id="type" name="type" required value="{{$type->type}}"> -->

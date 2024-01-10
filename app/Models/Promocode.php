@@ -10,8 +10,8 @@ class Promocode extends Model
     use HasFactory;
 
     public const STATUS_SELECT = [
-        '0'  => 'Active',
-        '1'  => 'Inactive',
+        '0'  => 'Inactive',
+        '1'  => 'Active',
     ];
     
     protected $fillable = [

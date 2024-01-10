@@ -20,7 +20,7 @@
                 <label for="type">Discount Type</label>
                 <select  name="type" class="form-control">
                     @foreach ($type as $type)
-                        <option  value="{{ $type->id }}">{{ $type->name }}</option>
+                        <option  value="{{ $type->id }}" {{ $detail->discount_type_id == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
                     @endforeach
                 </select>
                 <!-- <input class="form-control" type="text" id="category" name="category" required value="{{$type->category}}">  -->

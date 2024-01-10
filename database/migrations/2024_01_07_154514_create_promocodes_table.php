@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedInteger('redeem_count')->default(0);
             $table->integer('limit');
             $table->dateTime('expires_at');
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->default(1);
             $table->string('user_id');
             $table->string('code_detail_id');
             $table->timestamps();

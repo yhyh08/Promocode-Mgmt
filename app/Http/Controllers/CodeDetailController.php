@@ -32,17 +32,22 @@ class CodeDetailController extends Controller
     }
 
     public function view() {
-        $condition = TermCondition::all();
-        
         $detail=DB::table('code_details')
         ->leftJoin('discount_types', 'code_details.discount_type_id', '=', 'discount_types.id')
-        ->leftJoin('term_conditions', 'code_details.term_condition_id', '=', 'term_conditions.id')
-        ->select('code_details.*', 'discount_types.name as discount_type_name', 'term_conditions.title as term_condition_title')
+        ->select('code_details.*', 'discount_types.name as discount_type_name')
         ->paginate(10);
 
-        return view('admin.codeDetail.index')
-        ->with('detail', $detail)
-        ->with('condition', $condition);
+        $detail->transform(function ($detail) {
+
+            $detail->term_condition_id = collect(json_decode($detail->term_condition_id))
+            ->map(function ($conditionId) {
+                return TermCondition::find($conditionId)->title ?? ' ';
+            })->toArray();
+
+            return $detail;
+        });
+
+        return view('admin.codeDetail.index')->with('detail', $detail);
     }
 
     function edit($id) {

@@ -22,15 +22,14 @@ class DiscountTypeController extends Controller
         return redirect()->route('discountType.index' );
     }
 
-    public function add()
-    {
+    public function add() {
         $category = DiscountType::CATEGORY_SELECT;
         $type = DiscountType::TYPE_SELECT;
 
         return view('admin.discountType.create' , compact('category' , 'type'));
     }
 
-    public function view(){
+    public function view() {
         $type=DiscountType::paginate(10);
 
         $type->each(function ($type) {
@@ -44,7 +43,7 @@ class DiscountTypeController extends Controller
         return view('admin.discountType.index')->with('type', $type);
     }
 
-    public function edit($id){
+    public function edit($id) {
         $type=DiscountType::all()->where('id' , $id);
 
         $category = DiscountType::CATEGORY_SELECT;
@@ -57,7 +56,7 @@ class DiscountTypeController extends Controller
         ;
     }
 
-    public function update(){
+    public function update() {
         $r=request();
         $type=DiscountType::find($r->id);
         
@@ -70,7 +69,7 @@ class DiscountTypeController extends Controller
         return redirect()->route('discountType.index');
     }
 
-    public function delete($id){
+    public function delete($id) {
         $type=DiscountType::find($id);
         $type->delete(); 
         return redirect()->route('discountType.index');

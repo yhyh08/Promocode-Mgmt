@@ -25,11 +25,9 @@
             
             <div class="form-group">
 				<label for="detail">Code Detail</label>
-                
-                
                 <select id="detail" name="detail" class="form-control">
                     @foreach ($detail as $detail)
-                        <option value="{{ $detail->id }}">{{ $detail->term_condition_title }}</option>
+                        <option value="{{ $detail->id }}">{{ $detail->id }}</option>
                     @endforeach
                 </select>
                 <br>
@@ -54,7 +52,6 @@
                         <input id="term_condition" class="form-control" type="text" value="" readonly>
                     </div>
                 </div>
-                @endforeach
             </div>
             <button type="submit" class="btn btn-primary btn-clr">Add New</button>            
         </form>

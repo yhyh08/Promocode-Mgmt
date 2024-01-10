@@ -29,9 +29,9 @@
                 <td>{{$details->discount_amount}}</td>
                 <td>{{$details->discount_type_name}}</td>
                 <td>
-                    @foreach($condition as $conditions)
-                        {{$details->term_condition_title}}
-                    @endforeach   
+                    @foreach($details->term_condition_id as $value => $label)
+                        {{$label}}
+                    @endforeach  
                 </td>
                 <td>
                     <a href="{{ route('codeDetail.edit', ['id'=>$details->id]) }}" class="clr-icon"><i class="fs-4 bi-pencil-square"></i></a>

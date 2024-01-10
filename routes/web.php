@@ -21,6 +21,8 @@ Route::get('/', function () {
 Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
 Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
 
+Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+
 //promocode
 Route::get('promocode/add', 'PromocodeController@add')->name('promocode.add');
 Route::get('promocode/get_detail/{id}', 'PromocodeController@getDetail')->name('promocode.getCodeDetail');
@@ -59,8 +61,9 @@ Route::get('code_detail/edit/{id}', 'CodeDetailController@edit')->name('codeDeta
 Route::post('code_detail/update', 'CodeDetailController@update')->name('codeDetail.update');
 Route::get('code_detail/delete/{id}', 'CodeDetailController@delete')->name('codeDetail.delete');
 
-Route::get('redeem', 'RedeemController@index')->name('redeem');
+//redeem
+Route::get('promocode/redeemed', 'RedeemController@index')->name('promocode.redeemed');
+Route::get('redeem', 'RedeemController@view')->name('redeem');
+Route::get('voucher', 'RedeemController@show')->name('voucher');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

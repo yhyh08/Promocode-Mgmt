@@ -14,16 +14,13 @@
                     <div class="form-group">
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">Apply</button>
                 </form>
             </div>
         </div>
     </div>
-    
-    <div class="col-sm-4"></div>
-    <div class="col-sm-2">
-    <br><br>
-        <h3>Apply</h3>
+
+        {{-- <h3>Apply</h3>
 
         <table class="table table-bordered">
             <thead>
@@ -103,7 +100,7 @@
         }
         document.getElementById('sub').value=subtotal.toFixed(2); //convert 2 decimal place      
     }
-</script>
+</script> --}}
 
 @endsection
 

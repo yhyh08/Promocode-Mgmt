@@ -10,17 +10,24 @@ use DB;
 
 class RedeemController extends Controller
 {
-    function index()
-    {
-        $redeem = DB::table('redeems')
+    public function index() {
+        $redeemed = DB::table('redeems')
         ->leftJoin('promocodes', 'redeems.promocode_id', '=', 'promocodes.id')
         ->select('redeems.*', 'promocodes.code as code')
-        ->get();
+        ->paginate(10);
         
-        return view('admin.promocode.redeem')->with('redeem' , $redeem);
+        return view('admin.promocode.redeemed')->with('redeemed' , $redeemed);
     }
 
-    function delete($id){
+    public function view() {
+        return view('redeem');
+    }
+
+    public function show() {
+        return view('voucher');
+    }
+
+    public function delete($id) {
         $redeem=Redeem::find($id);
         $redeem->delete(); 
         return redirect()->route('redeem.index');

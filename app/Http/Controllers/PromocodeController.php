@@ -62,7 +62,7 @@ class PromocodeController extends Controller
         }
     }
 
-    function view() {
+    public function view() {
         $promo=Promocode::paginate(10);
 
         return view('admin.promocode.index')->with('promocode', $promo);

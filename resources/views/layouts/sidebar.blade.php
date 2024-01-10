@@ -5,7 +5,7 @@
         </a>
         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             <li class="nav-item">
-                <a href="{{ route('home') }}" class="nav-link align-middle nav-name {{ request()->is('home') ? 'active' : '' }}">
+                <a href="{{ route('dashboard') }}" class="nav-link align-middle nav-name {{ request()->is('dashboard') ? 'active' : '' }}">
                     <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
                 </a>
             </li>
@@ -30,8 +30,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('redeem') }}" class="nav-link align-middle nav-name {{ request()->is('redeem') ? 'active' : '' }}">
+                <a href="{{ route('promocode.redeemed') }}" class="nav-link align-middle nav-name {{ request()->is('promocode/redeemed') ? 'active' : '' }}">
                     <i class="fs-4 bi-ticket-perforated"></i> <span class="ms-1 d-none d-sm-inline">Redeem</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('voucher') }}" class="nav-link align-middle nav-name {{ request()->is('voucher') ? 'active' : '' }}">
+                    <i class="fs-4 bi-postcard"></i> <span class="ms-1 d-none d-sm-inline">Voucher</span>
                 </a>
             </li>
         </ul>

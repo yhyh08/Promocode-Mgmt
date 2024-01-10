@@ -62,6 +62,8 @@
     <br><br>
         <h3>Apply</h3>
 
+        <form action="{{ route('promocode.apply') }}" method="post" enctype='multipart/form-data' >
+            @csrf
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -103,8 +105,7 @@
                 {{ Session::get('error') }}
             </div>
         @endif
-        <form action="{{ route('promocode.apply') }}" method="post" enctype='multipart/form-data' >
-            @csrf
+        
             <div class="form-group">
 				<label for="code">Redeem Code</label>
 				<input class="form-control" type="text" id="code" name="code" required>
@@ -115,29 +116,5 @@
     </div>
     <div class="col-sm-6"></div>
 </div>
-
-<script>
-    let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-
-    elems.forEach(function(html) {
-        let switchery = new Switchery(html,  { size: 'small' });
-    });
-
-    $(document).ready(function(){
-        $('.js-switch').change(function () {
-            let status = $(this).prop('checked') === true ? 1 : 0;
-            let codeId = $(this).data('id');
-            $.ajax({
-                type: "GET",
-                dataType: "json",
-                url: '{{ route('promocode.status') }}',
-                data: {'status': status, 'promoId': codeId},
-                success: function (data) {
-                    console.log(data.message);
-                }
-            });
-        });
-    });
-</script>
 
 @endsection

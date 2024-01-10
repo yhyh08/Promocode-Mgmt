@@ -21,18 +21,16 @@
             <label for="type">Discount Type</label>
             <select  name="type" class="form-control">
                     @foreach ($type as $type)
-                        <option  value="{{ $type->id }}">{{ $type->name }}</option>
+                        <option  value="{{ $type->id }}" {{ $detail->discount_type_id == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
                     @endforeach
                 </select>
-            <!-- <input class="form-control" type="text" id="category" name="category" required value="{{$type->category}}">  -->
             <div class="form-group">
             <label for="condition">Term Condition</label>
             <select name="condition" class="form-control">
                     @foreach ($condition as $condition )
-                        <option value="{{ $condition->id }}">{{ $condition->title }}</option>
+                        <option value="{{ $condition->id }}" {{ $detail->term_condition_id == $condition->id ? 'selected' : '' }} >{{ $condition->title }}</option>
                     @endforeach
                 </select>
-            <!-- <input class="form-control" type="text" id="type" name="type" required value="{{$type->type}}"> -->
             </div>
             
             <button type="submit" class="btn btn-primary">Update</button>

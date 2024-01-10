@@ -29,6 +29,7 @@ Route::get('/auth/google/callback', [App\Http\Controllers\Auth\LoginController::
 
 //promocode
 Route::get('promocode/add', 'PromocodeController@add');
+Route::get('promocode/get_detail/{id}', 'PromocodeController@getDetail')->name('promocode.getCodeDetail');
 Route::get('promocode', 'PromocodeController@view')->name('promocode.index');
 Route::post('promocode/store', 'PromocodeController@create')->name('promocode.create');
 Route::get('promocode/edit/{id}', 'PromocodeController@edit')->name('promocode.edit');
@@ -36,6 +37,9 @@ Route::post('promocode/update', 'PromocodeController@update')->name('promocode.u
 Route::get('promocode/delete/{id}', 'PromocodeController@delete')->name('promocode.delete');
 Route::get('promocode/updateStatus', 'PromocodeController@updateStatus')->name('promocode.status');
 Route::post('promocode/apply', 'PromocodeController@applyPromoCode')->name('promocode.apply');
+
+Route::get('report', 'RedeemController@index')->name('redeem.index');
+Route::get('report/delete/{id}', 'RedeemController@delete')->name('redeem.delete');
 
 //discount type
 Route::get('discount_type/add', 'DiscountTypeController@add');

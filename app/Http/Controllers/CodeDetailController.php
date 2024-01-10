@@ -11,16 +11,6 @@ use App\Models\TermCondition;
 
 class CodeDetailController extends Controller
 {
-    public function yourMethod()
-    {
-        $codeDetails = CodeDetail::leftJoin('model_types', 'code_details.model_type_id', '=', 'model_types.id')
-            ->leftJoin('model_conditions', 'code_details.model_condition_id', '=', 'model_conditions.id')
-            ->select('code_details.*', 'model_types.name as model_type_name', 'model_conditions.name as model_condition_name')
-            ->get();
-
-        return view('your_view', ['codeDetails' => $codeDetails]);
-    }
-
     function create(){
         $r=request();
 
@@ -38,7 +28,7 @@ class CodeDetailController extends Controller
     {
         $type = DiscountType::all();
         $condition = TermCondition::all();
-        // dd($type);
+        
         return view('admin.codeDetail.create' , compact('type' , 'condition'));
     }
 
@@ -53,8 +43,13 @@ class CodeDetailController extends Controller
     }
 
     function edit($id){
-        $detail=CodeDetail::all()->where('id' , $id);
-
+        $detail=DB::table('code_details')
+        ->leftJoin('discount_types', 'code_details.discount_type_id', '=', 'discount_types.id')
+        ->leftJoin('term_conditions', 'code_details.term_condition_id', '=', 'term_conditions.id')
+        ->select('code_details.*', 'discount_types.name as discount_type_name', 'term_conditions.title as term_condition_title')
+        ->where('code_details.id' , $id)
+        ->get();
+        
         $type = DiscountType::all();
         $condition = TermCondition::all();
         

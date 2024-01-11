@@ -11,37 +11,39 @@
                     </div>
                 </div>
             </nav>
+
             <div class="row px-4">
+                <h2 class="mb-3">Dashboard</h2>
+
                 <div class="col-sm-3 mb-3">
-                    <div class="card">
+                    <div class="card card-clr1">
                         <div class="card-body text-center">
-                            <h3 class="card-title font-weight-bold">21</h3>
-                            {{-- {{$promocode->count()}} --}}
+                            <h3 class="card-title font-weight-bold">{{ $promocode }}</h3>
                             <p class="card-text">Total Promocode</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-3 mb-3">
-                    <div class="card">
+                    <div class="card card-clr2">
                         <div class="card-body text-center">
-                            <h3 class="card-title font-weight-bold">21</h3>
-                            <p class="card-text">Total Promocode</p>
+                            <h3 class="card-title font-weight-bold">{{ $detail }}</h3>
+                            <p class="card-text">Total Code Detail</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-3 mb-3">
-                    <div class="card">
+                    <div class="card card-clr1">
                         <div class="card-body text-center">
-                            <h3 class="card-title font-weight-bold">21</h3>
-                            <p class="card-text">Total Promocode</p>
+                            <h3 class="card-title font-weight-bold">{{ $discount }}</h3>
+                            <p class="card-text">Total Discount Type</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-3 mb-3">
-                    <div class="card">
+                    <div class="card card-clr2">
                         <div class="card-body text-center">
-                            <h3 class="card-title font-weight-bold">21</h3>
-                            <p class="card-text">Total Promocode</p>
+                            <h3 class="card-title font-weight-bold">{{ $terms }}</h3>
+                            <p class="card-text">Total Terms and Conditions</p>
                         </div>
                     </div>
                 </div>            
@@ -49,4 +51,5 @@
         </div>
     </div>    
 </div>
+
 @endsection

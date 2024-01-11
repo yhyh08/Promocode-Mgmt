@@ -34,7 +34,6 @@ class DiscountTypeController extends Controller
 
         $type->each(function ($type) {
             $type->category = DiscountType::CATEGORY_SELECT[$type->category];
-            
         });
         
         $type->each(function ($type) {

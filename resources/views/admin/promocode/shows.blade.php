@@ -3,21 +3,20 @@
 @section('content')
 <div class="row">
     <div class="container-fluid m-5 all-view">
-        <h3 class="pb-2">Show Promo Code</h3>
-        <form action="{{ route('promocode.update') }}" method="POST" enctype="multipart/form-data">
-        @csrf
+        <a href="{{ url()->previous() }}" class="btn btn-info btn-xs d-inline-flex align-items-center mb-3"><i class="fs-4 bi-backspace pr-2"></i>Back</a>
+
+        <h3 class="pb-2">Show Detail Promo Code</h3>
+        <form action="" method="" enctype="multipart/form-data">
             @foreach($promo as $promo)
 
             <div class="form-group">
-                <label for="status">Status</label>
                 <input type="hidden" name="id" value="{{$promo->id}}">
-                <input type="checkbox" data-id="{{ $promo->id }}" name="status" class="js-switch" {{ $promo->status == 1 ? 'checked' : '' }} >
             </div>
 
             <div class="form-row">
                 <div class="col">
                     <label for="codeName">Name</label>
-                    <input class="form-control" type="text" id="codeName" name="codeName" value="{{$promo->name}}" required> 
+                    <input class="form-control" type="text" id="codeName" name="codeName" value="{{$promo->name}}" readonly> 
                 </div>
                 <div class="col">
                     <label for="code">code</label>
@@ -27,30 +26,35 @@
 
             <div class="form-group">
                 <label for="codeDescription">Description</label>
-                <input class="form-control" type="text" id="codeDescription" name="codeDescription" value="{{$promo->description}}" required>
+                <input class="form-control" type="text" id="codeDescription" name="codeDescription" value="{{$promo->description}}" readonly>
             </div>
 
             <div class="form-row">
                 <div class="col">
                     <label for="count">Redeem Count</label>
-                    <input class="form-control" type="number" id="count" name="count" value="{{$promo->redeem_count}}" required> 
+                    <input class="form-control" type="number" id="count" name="count" value="{{$promo->redeem_count}}" readonly> 
                 </div>
                 <div class="col">
                     <label for="limit">Redeem Limit</label>
-                    <input class="form-control" type="number" id="limit" name="limit" value="{{ $promo->limit }}"required >
+                    <input class="form-control" type="number" id="limit" name="limit" value="{{ $promo->limit }}"readonly >
                 </div>
             </div>
             
             <div class="form-group">
                 <label for="expired_date">Expired Date</label>
-                <input class="form-control" type="date" id="expired_date" name="expired_date" value="{{$promo->expires_at}}" required>
+                <input class="form-control" type="date" id="expired_date" name="expired_date" value="{{$promo->expires_at}}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status</label>
+                <input type="checkbox" data-id="{{ $promo->id }}" name="status" readonly class="js-switch" {{ $promo->status == 1 ? 'checked' : '' }} >
             </div>
 
             <div class="form-group">
 				<label for="detail">Code Detail</label>
-                <select id="detail" name="detail" class="form-control">
+                <select id="detail" name="detail" class="form-control" readonly>
                     @foreach ($detail as $detail)
-                        <option value="{{ $detail->id }}">{{ $detail->discount_type_name }}</option>
+                        <option value="" readonly>{{ $detail->discount_type_name }}</option>
                     @endforeach
                 </select>
                 <br>
@@ -75,18 +79,13 @@
                         <input id="term_condition" class="form-control" type="text" value="" readonly>
                     </div>
                 </div>
-                
-				<!-- <input class="form-control" type="text" id="type" name="type" required> -->
             </div>
-
-            <button type="submit" class="btn btn-primary">Update</button>
-            
             @endforeach
         </form>
     </div>
 </div>
 
-<script>
+{{-- <script>
     let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 
     elems.forEach(function(html) {
@@ -137,5 +136,5 @@
             });
         }
     });
-</script>
+</script> --}}
 @endsection

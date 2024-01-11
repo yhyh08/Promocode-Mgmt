@@ -9,10 +9,10 @@
             @foreach($promo as $promo)
 
             <div class="form-group">
-                <label for="status">Status</label>
+                <label for="status" style="margin-right: 10px;">Status</label>
                 <input type="hidden" name="id" value="{{$promo->id}}">
-
-                <input type="checkbox" data-id="{{ $promo->id }}" name="status" class="js-switch" {{ $promo->status == 1 ? 'checked' : '' }}>
+                <input data-id="{{$promo->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" {{ $promo->status == 1 ? 'checked' : '' }}> 
+                <!-- <input type="checkbox" data-id="{{ $promo->id }}" name="status" class="js-switch" {{ $promo->status == 1 ? 'checked' : '' }}> -->
             </div>
 
             <div class="form-row">
@@ -88,8 +88,8 @@
 </div>
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
 <script>
     let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));

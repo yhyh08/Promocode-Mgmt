@@ -78,7 +78,7 @@
                     $('#minimum_price').val(response.minimum_price);
                     $('#discount_amount').val(response.discount_amount);
                     $('#discount_type').val(response.discount_type_name);
-                    // $('#term_condition').val(response.term_condition_title);
+                    $('#term_condition').val(response.term_condition_title);
                 },
                 error: function(error) {
                     console.log('Error fetching details:', error);

@@ -183,7 +183,7 @@ class PromocodeController extends Controller
                     //     'original_total' => $totalPrice,
                     // ]);
 
-                    return redirect()->back()->with('success', 'Active promo code. Discount: $' . $discountAmount . ', Discounted Total: $' . $discountedTotal);
+                    return redirect()->back()->with('success', 'Active promo code.');
                 // }
                 // else{
                 //     return redirect()->back()->with('error', 'Your total price does not reach the minimum price using this promo code');

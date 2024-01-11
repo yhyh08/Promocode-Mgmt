@@ -177,11 +177,11 @@ class PromocodeController extends Controller
                     // $discountAmount = $codeDetail->discount_amount;
                     // $discountedTotal = max(0, $totalPrice - $discountAmount);
     
-                    session([
-                        'applied_promo_code' => $promo,
-                        'discounted_total' => $discountedTotal,
-                        'original_total' => $totalPrice,
-                    ]);
+                    // session([
+                    //     'applied_promo_code' => $promo,
+                    //     'discounted_total' => $discountedTotal,
+                    //     'original_total' => $totalPrice,
+                    // ]);
 
                     return redirect()->back()->with('success', 'Active promo code. Discount: $' . $discountAmount . ', Discounted Total: $' . $discountedTotal);
                 // }

@@ -47,7 +47,22 @@ class PromocodeController extends Controller
         $detail = CodeDetail::find($id);
 
         $discount_type = DiscountType::find($detail->discount_type_id);
-        $term_condition = TermCondition::find($detail->term_condition_id);
+
+        $details=DB::table('code_details')
+        ->leftJoin('term_conditions', 'code_details.term_condition_id', '=', 'term_conditions.id')
+        ->select('code_details.*')
+        ->where('code_details.id' , $id)
+        ->get();
+        
+        $details->transform(function ($item) {
+            $item->term_condition_id = collect(json_decode($item->term_condition_id))
+            ->map(function ($conditionId) {
+                return TermCondition::find($conditionId)->title ?? ' ';
+            })->implode(', ');
+
+            return $item;
+        });
+
         
         if ($detail) {
             // Return details as JSON
@@ -55,7 +70,7 @@ class PromocodeController extends Controller
                 'minimum_price' => $detail->minimum_price,
                 'discount_amount' => $detail->discount_amount,
                 'discount_type_name' => $discount_type->name,
-                // 'term_condition_title' => $term_condition->title,
+                'term_condition_title' => $details->pluck('term_condition_id')->first(),
             ]);
         } else {
             return response()->json(['error' => 'Detail not found'], 404);

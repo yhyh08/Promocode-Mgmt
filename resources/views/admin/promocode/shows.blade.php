@@ -4,11 +4,12 @@
 <div class="row">
     <div class="container-fluid m-5 all-view">
         <a href="{{ url()->previous() }}" class="btn btn-info btn-xs d-inline-flex align-items-center mb-3 mr-3"><i class="fs-4 bi-backspace pr-2"></i>Back</a>
-
+        
         <h3 class="pb-2">Show Detail Promo Code</h3>
         <form action="" method="" enctype="multipart/form-data">
             @foreach($promo as $promo)
-
+            <a href="{{ route('promocode.edit', ['id'=>$promo->id]) }}" class="clr-icon"><i class="fs-4 bi-pencil-square"></i></a>
+            
             <div class="form-group">
                 <input type="hidden" name="id" value="{{$promo->id}}">
             </div>

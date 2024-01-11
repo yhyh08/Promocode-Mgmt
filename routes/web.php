@@ -27,12 +27,15 @@ Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::get('promocode/add', 'PromocodeController@add')->name('promocode.add');
 Route::get('promocode/get_detail/{id}', 'PromocodeController@getDetail')->name('promocode.getCodeDetail');
 Route::get('promocode', 'PromocodeController@view')->name('promocode.index');
+Route::get('promocode/show', 'PromocodeController@show')->name('promocode.show');
 Route::post('promocode/store', 'PromocodeController@create')->name('promocode.create');
 Route::get('promocode/edit/{id}', 'PromocodeController@edit')->name('promocode.edit');
 Route::post('promocode/update', 'PromocodeController@update')->name('promocode.update');
 Route::get('promocode/delete/{id}', 'PromocodeController@delete')->name('promocode.delete');
 Route::get('promocode/updateStatus', 'PromocodeController@updateStatus')->name('promocode.status');
 Route::post('promocode/apply', 'PromocodeController@applyPromoCode')->name('promocode.apply');
+Route::get('promocode/voucher/{id}', 'PromocodeController@viewVoucher')->name('promocode.voucher');
+Route::get('promocode/voucher/{id}/print', 'RedeemController@print')->name('voucher.print');
 
 Route::get('report', 'RedeemController@index')->name('redeem.index');
 Route::get('report/delete/{id}', 'RedeemController@delete')->name('redeem.delete');
@@ -67,7 +70,5 @@ Route::get('code_detail/delete/{id}', 'CodeDetailController@delete')->name('code
 //redeem
 Route::get('promocode/redeemed', 'RedeemController@index')->name('promocode.redeemed');
 Route::get('redeem', 'RedeemController@view')->name('redeem');
-Route::get('voucher', 'RedeemController@show')->name('voucher');
-Route::get('voucher/print', 'RedeemController@print')->name('voucher.print');
 
 Auth::routes();

@@ -15,7 +15,7 @@
             <tr>
                 <th>ID</th>
                 <th>Mininum Price</th>
-                <th>amount</th>
+                <th>Amount</th>
                 <th>Discount Type</th>
                 <th>Term Condition</th>
                 <th>Action</th>
@@ -30,7 +30,7 @@
                 <td>{{$details->discount_type_name}}</td>
                 <td>
                     @foreach($details->term_condition_id as $value => $label)
-                        {{$label}}
+                        {{$label}} <br>
                     @endforeach  
                 </td>
                 <td>

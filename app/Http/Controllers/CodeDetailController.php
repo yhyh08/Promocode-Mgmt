@@ -38,7 +38,6 @@ class CodeDetailController extends Controller
         ->paginate(10);
 
         $detail->transform(function ($detail) {
-
             $detail->term_condition_id = collect(json_decode($detail->term_condition_id))
             ->map(function ($conditionId) {
                 return TermCondition::find($conditionId)->title ?? ' ';

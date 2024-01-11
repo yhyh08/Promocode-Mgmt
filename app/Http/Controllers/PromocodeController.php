@@ -68,6 +68,24 @@ class PromocodeController extends Controller
         return view('admin.promocode.index')->with('promocode', $promo);
     }
 
+    public function show($id) {
+        $promo=Promocode::all()->where('id' , $id);
+
+        $detail=DB::table('code_details')
+        ->leftJoin('discount_types', 'code_details.discount_type_id', '=', 'discount_types.id')
+        ->leftJoin('term_conditions', 'code_details.term_condition_id', '=', 'term_conditions.id')
+        ->select('code_details.*', 'discount_types.name as discount_type_name', 'term_conditions.title as term_condition_title')
+        ->get();
+        
+        return view('admin.promocode.show')->with('promo', $promo)->with('detail',$detail);
+    }
+
+    public function viewDashboard() {
+        $promo=Promocode::all();
+          
+        return view('dashboard')->with('promocode', $promo);
+    }
+
     public function edit($id) {
         $promo=Promocode::all()->where('id' , $id);
 
@@ -164,5 +182,38 @@ class PromocodeController extends Controller
         } else {
             return redirect()->back()->with('error', 'Invalid promo code.');
         }
+    }
+
+    public function viewVoucher($id) {
+        $promo=Promocode::all()->where('id' , $id);
+
+        $detail=DB::table('code_details')
+        ->leftJoin('discount_types', 'code_details.discount_type_id', '=', 'discount_types.id')
+        ->leftJoin('term_conditions', 'code_details.term_condition_id', '=', 'term_conditions.id')
+        ->select('code_details.*', 'discount_types.category as discount_type_category', 
+        'discount_types.type as discount_type_type', 'term_conditions.content as term_condition_content')
+        ->where('code_details.id' , $id)
+        ->get();
+        
+        $detail->transform(function ($detail) {
+            $detail->term_condition_id = collect(json_decode($detail->term_condition_id))
+            ->map(function ($conditionId) {
+                return TermCondition::find($conditionId)->content ?? ' ';
+            })->toArray();
+
+            return $detail;
+        });
+
+        $detail->each(function ($detail) {
+            $detail->discount_type_category = DiscountType::CATEGORY_SELECT[$detail->discount_type_category];
+        });
+
+        $detail->each(function ($detail) {
+            $detail->discount_type_type = DiscountType::TYPE_SELECT[$detail->discount_type_type];
+        });
+
+        return view('admin.promocode.voucher')
+        ->with('promo', $promo)
+        ->with('detail',$detail);
     }
 }

@@ -11,32 +11,27 @@
             </li>
             <li class="nav-item">
                 <a href="{{ route('promocode.index') }}" class="nav-link align-middle nav-name {{ request()->is('promocode') ? 'active' : '' }}"> 
-                    <i class="fs-4 bi-shop"></i> <span class="ms-1 d-none d-sm-inline">Manage Promocode</span>
+                    <i class="fs-4 bi-shop"></i> <span class="ms-1 d-none d-sm-inline">Promocode</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('codeDetail.index') }}" class="nav-link align-middle nav-name {{ request()->is('code_detail') ? 'active' : '' }}"> 
-                    <i class="fs-4 bi-gift"></i> <span class="ms-1 d-none d-sm-inline">Manage Code Detail</span>
+                    <i class="fs-4 bi-gift"></i> <span class="ms-1 d-none d-sm-inline">Code Detail</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('discountType.index') }}" class="nav-link align-middle nav-name {{ request()->is('discount_type') ? 'active' : '' }}"> 
-                    <i class="fs-4 bi-wallet2"></i> <span class="ms-1 d-none d-sm-inline">Manage Discount Type</span>
+                    <i class="fs-4 bi-wallet2"></i> <span class="ms-1 d-none d-sm-inline">Discount Type</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('termCondition.index') }}" class="nav-link align-middle nav-name {{ request()->is('term_condition') ? 'active' : '' }}"> 
-                    <i class="fs-4 bi-card-checklist"></i> <span class="ms-1 d-none d-sm-inline">Manage T&C</span>
+                    <i class="fs-4 bi-card-checklist"></i> <span class="ms-1 d-none d-sm-inline">T & C</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('promocode.redeemed') }}" class="nav-link align-middle nav-name {{ request()->is('promocode/redeemed') ? 'active' : '' }}">
                     <i class="fs-4 bi-ticket-perforated"></i> <span class="ms-1 d-none d-sm-inline">Redeem</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ route('voucher') }}" class="nav-link align-middle nav-name {{ request()->is('voucher') ? 'active' : '' }}">
-                    <i class="fs-4 bi-postcard"></i> <span class="ms-1 d-none d-sm-inline">Voucher</span>
                 </a>
             </li>
         </ul>

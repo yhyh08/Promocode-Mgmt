@@ -16,6 +16,7 @@
                     <div class="card">
                         <div class="card-body text-center">
                             <h3 class="card-title font-weight-bold">21</h3>
+                            {{-- {{$promocode->count()}} --}}
                             <p class="card-text">Total Promocode</p>
                         </div>
                     </div>

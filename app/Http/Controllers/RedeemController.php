@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Promocode;
 use DB;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\TermCondition;
+use App\Models\DiscountType;
 
 class RedeemController extends Controller
 {
@@ -24,31 +26,41 @@ class RedeemController extends Controller
         return view('redeem');
     }
 
-    public function show() {
-        $data = [
-            'title' => 'Card title',
-            'description' => 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
-            'lastUpdated' => 'Last updated 3 mins ago',
-        ];
-
-        return view('voucher',$data);
-    }
-
     public function delete($id) {
         $redeem=Redeem::find($id);
         $redeem->delete(); 
         return redirect()->route('redeem.index');
     }
 
-    public function print()
-{
-    $data = [
-        'title' => 'Card title',
-        'description' => 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
-        'lastUpdated' => 'Last updated 3 mins ago',
-    ];
+    public function print($id) {
+        $promo=Promocode::all()->where('id' , $id);
 
-    $pdf = PDF::loadView('voucher', $data);
-    return $pdf->download('voucher.pdf');
-}
+        $detail=DB::table('code_details')
+        ->leftJoin('discount_types', 'code_details.discount_type_id', '=', 'discount_types.id')
+        ->leftJoin('term_conditions', 'code_details.term_condition_id', '=', 'term_conditions.id')
+        ->select('code_details.*', 'discount_types.category as discount_type_category', 
+        'discount_types.type as discount_type_type', 'term_conditions.content as term_condition_content')
+        ->where('code_details.id' , $id)
+        ->get();
+        
+        $detail->transform(function ($detail) {
+            $detail->term_condition_id = collect(json_decode($detail->term_condition_id))
+            ->map(function ($conditionId) {
+                return TermCondition::find($conditionId)->content ?? ' ';
+            })->toArray();
+
+            return $detail;
+        });
+
+        $detail->each(function ($detail) {
+            $detail->discount_type_category = DiscountType::CATEGORY_SELECT[$detail->discount_type_category];
+        });
+
+        $detail->each(function ($detail) {
+            $detail->discount_type_type = DiscountType::TYPE_SELECT[$detail->discount_type_type];
+        });
+
+        $pdf = PDF::loadView('admin.promocode.voucher', ['detail' => $detail->toArray()]);
+        return $pdf->download('voucher.pdf');
+    }
 }

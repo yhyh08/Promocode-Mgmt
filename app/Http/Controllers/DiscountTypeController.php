@@ -34,10 +34,11 @@ class DiscountTypeController extends Controller
 
         $type->each(function ($type) {
             $type->category = DiscountType::CATEGORY_SELECT[$type->category];
+            
         });
-
+        
         $type->each(function ($type) {
-            $type->type = DiscountType::TYPE_SELECT[$type->type];
+            $type->type = DiscountType::TYPE_SELECT[$type->type];  
         });
 
         return view('admin.discountType.index')->with('type', $type);
@@ -52,8 +53,7 @@ class DiscountTypeController extends Controller
         return view('admin.discountType.edit')
         ->with('type', $type)
         ->with('category', $category)
-        ->with('method', $method)
-        ;
+        ->with('method', $method);
     }
 
     public function update() {

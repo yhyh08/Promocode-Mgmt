@@ -75,3 +75,13 @@ body {
     background-color: #f10e34 !important;
 }
 /* End Manage */
+
+/* Voucher */
+.term-text{
+    font-size: 10px;
+}
+
+.term-title-text{
+    font-size: 12px;
+}
+/* End Voucher */

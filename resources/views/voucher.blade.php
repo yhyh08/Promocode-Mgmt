@@ -11,6 +11,12 @@
             <p class="card-text">Last updated 3 mins ago</p>
         </div>
     </div>
+    <br>
+    <div class="col text-right">
+            <a href="{{route('voucher.print')}}" class="btn btn-success btn-xs d-inline-flex align-items-center px-4 ">print</a>
+    </div>
 </div>
+
+
 
 @endsection    

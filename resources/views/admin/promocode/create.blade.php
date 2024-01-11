@@ -27,7 +27,7 @@
 				<label for="detail">Code Detail</label>
                 <select id="detail" name="detail" class="form-control">
                     @foreach ($detail as $detail)
-                        <option value="{{ $detail->id }}">{{ $detail->id }}</option>
+                        <option value="{{ $detail->id }}">{{ $detail->discount_type_name }}</option>
                     @endforeach
                 </select>
                 <br>
@@ -57,5 +57,35 @@
         </form>
     </div>
 </div>
+
+
+<script>
+    $(document).ready(function() {
+        readOption();
+
+        $('#detail').change(function () {
+            readOption();
+        });
+
+        function readOption(){
+            var selectedDetail = $('#detail').val();
+
+            $.ajax({
+                url: 'get_detail/' + selectedDetail, 
+                method: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    $('#minimum_price').val(response.minimum_price);
+                    $('#discount_amount').val(response.discount_amount);
+                    $('#discount_type').val(response.discount_type_name);
+                    // $('#term_condition').val(response.term_condition_title);
+                },
+                error: function(error) {
+                    console.log('Error fetching details:', error);
+                }
+            });
+        }
+    });
+</script>
 
 @endsection

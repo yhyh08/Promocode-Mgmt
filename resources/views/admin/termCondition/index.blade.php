@@ -2,14 +2,30 @@
 
 @section('content')
 <div class="container-fluid m-5 all-view">
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="row mb-3">
         <div class="col">
             <h3 class="pb-2">Manage Terms and Conditions</h3>
+        </div>
+        <div >
+            <form action="{{ route('import.excel') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div >
+                    <input type="file" name="file" id="file" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Import</button>
+            </form>
         </div>
         <div class="col text-right">
             <a href="{{ route('termCondition.add') }}" class="btn btn-success btn-xs d-inline-flex align-items-center px-4 "><i class="fs-4 bi-patch-plus pr-2"></i>Add</a>
         </div>
     </div>
+    
+
     <table class="table table-striped">
         <thead>
             <tr>

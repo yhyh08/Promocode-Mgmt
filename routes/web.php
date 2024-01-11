@@ -53,6 +53,9 @@ Route::get('term_condition/edit/{id}', 'TermConditionController@edit')->name('te
 Route::post('term_condition/update', 'TermConditionController@update')->name('termCondition.update');
 Route::get('term_condition/delete/{id}', 'TermConditionController@delete')->name('termCondition.delete');
 
+Route::get('/import-excel', 'ExcelImportController@index')->name('import.excel');
+Route::post('/import-excel', 'ExcelImportController@import')->name('import.excel');
+
 //code detail
 Route::get('code_detail/add', 'CodeDetailController@add')->name('codeDetail.add');
 Route::get('code_detail', 'CodeDetailController@view')->name('codeDetail.index');
@@ -65,5 +68,6 @@ Route::get('code_detail/delete/{id}', 'CodeDetailController@delete')->name('code
 Route::get('promocode/redeemed', 'RedeemController@index')->name('promocode.redeemed');
 Route::get('redeem', 'RedeemController@view')->name('redeem');
 Route::get('voucher', 'RedeemController@show')->name('voucher');
+Route::get('voucher/print', 'RedeemController@print')->name('voucher.print');
 
 Auth::routes();

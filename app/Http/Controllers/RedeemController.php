@@ -7,6 +7,7 @@ use App\Models\Redeem;
 use App\Models\User;
 use App\Models\Promocode;
 use DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class RedeemController extends Controller
 {
@@ -24,7 +25,13 @@ class RedeemController extends Controller
     }
 
     public function show() {
-        return view('voucher');
+        $data = [
+            'title' => 'Card title',
+            'description' => 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
+            'lastUpdated' => 'Last updated 3 mins ago',
+        ];
+
+        return view('voucher',$data);
     }
 
     public function delete($id) {
@@ -32,4 +39,16 @@ class RedeemController extends Controller
         $redeem->delete(); 
         return redirect()->route('redeem.index');
     }
+
+    public function print()
+{
+    $data = [
+        'title' => 'Card title',
+        'description' => 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
+        'lastUpdated' => 'Last updated 3 mins ago',
+    ];
+
+    $pdf = PDF::loadView('voucher', $data);
+    return $pdf->download('voucher.pdf');
+}
 }

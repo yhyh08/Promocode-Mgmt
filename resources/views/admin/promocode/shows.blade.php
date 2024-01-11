@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="container-fluid m-5 all-view">
-        <a href="{{ url()->previous() }}" class="btn btn-info btn-xs d-inline-flex align-items-center mb-3"><i class="fs-4 bi-backspace pr-2"></i>Back</a>
+        <a href="{{ url()->previous() }}" class="btn btn-info btn-xs d-inline-flex align-items-center mb-3 mr-3"><i class="fs-4 bi-backspace pr-2"></i>Back</a>
 
         <h3 class="pb-2">Show Detail Promo Code</h3>
         <form action="" method="" enctype="multipart/form-data">
@@ -85,7 +85,10 @@
     </div>
 </div>
 
-{{-- <script>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+<script>
     let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 
     elems.forEach(function(html) {
@@ -97,12 +100,12 @@
             let status = $(this).prop('checked') === true ? 1 : 0;
             let codeId = $(this).data('id');
             $.ajax({
-                type: "GET",
+                method: "GET",
                 dataType: "json",
                 url: '{{ route('promocode.status') }}',
                 data: {'status': status, 'promoId': codeId},
                 success: function (data) {
-                    console.log(data.message);
+                    console.log('Error fetching details:', data);
                 }
             });
         });
@@ -136,5 +139,6 @@
             });
         }
     });
-</script> --}}
+</script>
+
 @endsection

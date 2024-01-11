@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="container-fluid m-5 all-view">
-        <h3 class="pb-2">Edit Promo Code</h3>
+        <h3 class="pb-2">Show Promo Code</h3>
         <form action="{{ route('promocode.update') }}" method="POST" enctype="multipart/form-data">
         @csrf
             @foreach($promo as $promo)

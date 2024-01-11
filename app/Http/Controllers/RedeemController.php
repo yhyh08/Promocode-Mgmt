@@ -23,10 +23,6 @@ class RedeemController extends Controller
         return view('redeem');
     }
 
-    public function show() {
-        return view('voucher');
-    }
-
     public function delete($id) {
         $redeem=Redeem::find($id);
         $redeem->delete(); 

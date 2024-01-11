@@ -21,10 +21,10 @@
                         <option value="{{ $type->id }}">{{ $type->name }}</option>
                     @endforeach
                 </select>
-				<!-- <input class="form-control" type="text" id="category" name="category" required> -->
             </div>
             <div class="form-group">
                 <label for="condition">Terms and Conditions</label>
+                <small id="emailHelp" class="form-text text-muted">*Can multiple select the terms*</small>
                 <select multiple class="form-control" name="condition[]">
                     @foreach ($condition as $condition)
                         <option value="{{ $condition->id }}">{{ $condition->title }}</option>

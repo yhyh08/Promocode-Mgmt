@@ -26,6 +26,10 @@ body {
     background-color: #e6e6e6 !important;
 }
 
+.nav-top{
+    margin-bottom: .15rem;
+}
+
 /* Sidebar */
 .sidebar-logo{
     width: 180px;
@@ -52,9 +56,17 @@ body {
 }
 /* End Sidebar */
 
-.nav-top{
-    margin-bottom: .15rem;
+/* Dashboard */
+.card-clr1{
+    background-color: #EEF2FF !important;
+    color: #3730A3 !important;
 }
+
+.card-clr2{
+    background-color: #F0FDF4 !important;
+    color: #166534 !important;
+}
+/* End Dashboard */
 
 /* Manage */
 .all-view{
@@ -85,3 +97,4 @@ body {
     font-size: 12px;
 }
 /* End Voucher */
+

@@ -83,7 +83,7 @@ class PromocodeController extends Controller
         return view('admin.promocode.index')->with('promocode', $promo);
     }
 
-    public function show($id) {
+    public function shows($id) {
         $promo=Promocode::all()->where('id' , $id);
 
         $detail=DB::table('code_details')
@@ -92,13 +92,7 @@ class PromocodeController extends Controller
         ->select('code_details.*', 'discount_types.name as discount_type_name', 'term_conditions.title as term_condition_title')
         ->get();
         
-        return view('admin.promocode.show')->with('promo', $promo)->with('detail',$detail);
-    }
-
-    public function viewDashboard() {
-        $promo=Promocode::all();
-          
-        return view('dashboard')->with('promocode', $promo);
+        return view('admin.promocode.shows')->with('promo', $promo)->with('detail',$detail);
     }
 
     public function edit($id) {

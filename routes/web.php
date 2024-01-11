@@ -21,13 +21,13 @@ Route::get('/', function () {
 Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
 Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
 
-Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 //promocode
 Route::get('promocode/add', 'PromocodeController@add')->name('promocode.add');
 Route::get('promocode/get_detail/{id}', 'PromocodeController@getDetail')->name('promocode.getCodeDetail');
 Route::get('promocode', 'PromocodeController@view')->name('promocode.index');
-Route::get('promocode/show', 'PromocodeController@show')->name('promocode.show');
+Route::get('promocode/shows/{id}', 'PromocodeController@shows')->name('promocode.shows');
 Route::post('promocode/store', 'PromocodeController@create')->name('promocode.create');
 Route::get('promocode/edit/{id}', 'PromocodeController@edit')->name('promocode.edit');
 Route::post('promocode/update', 'PromocodeController@update')->name('promocode.update');

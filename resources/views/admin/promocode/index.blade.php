@@ -43,7 +43,7 @@
                     <a href="{{ route('promocode.voucher', ['id'=>$promocodes->id]) }}" class="clr-icon"><i class="fs-4 bi-printer"></i></a>
                 </td>
                 <td>
-                    <a href="{{ route('promocode.show', ['id'=>$promocodes->id]) }}" class="clr-icon"><i class="fs-4 bi-pencil-square"></i></a>
+                    <a href="{{ route('promocode.shows', ['id'=>$promocodes->id]) }}" class="clr-icon"><i class="fs-4 bi-book"></i></a>
                     &nbsp;
                     <a href="{{ route('promocode.edit', ['id'=>$promocodes->id]) }}" class="clr-icon"><i class="fs-4 bi-pencil-square"></i></a>
                     &nbsp;

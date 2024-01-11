@@ -139,29 +139,32 @@ class PromocodeController extends Controller
 
     public function applyPromoCode() {
         $r=request();
-        $totalPrice = $r->sub;
+        
+        // $totalPrice = $r->sub;
 
         $promo = Promocode::where('code', $r->code)
             ->where('status', '1')
             ->where('expires_at', '>', now())
             ->first();
 
-        $codeDetail = CodeDetail::where('id', $promo->code_detail_id)->first();
-
-        $redeemed= Redeem::all()
-        ->where('user_id', ( Auth::id() )? ( Auth::id() ) : '1')
-        ->where('promocode_id', $promo->id)
-        ->first();
-
-        if($redeemed){
-            return redirect()->back()->with('error', 'You have redeemed this promocode');
-        }
+       
 
         if ($promo) {
+
+            $redeemed= Redeem::all()
+            ->where('user_id', ( Auth::id() )? ( Auth::id() ) : '1')
+            ->where('promocode_id', $promo->id)
+            ->first();
+
+            if($redeemed){
+                return redirect()->back()->with('error', 'You have redeemed this promocode');
+            }
             // Check usage limit
             if ($promo->limit === null || $promo->redeem_count < $promo->limit) {
+                    
                 //Check the price with the promocode's minimun price 
-                if ($totalPrice > $codeDetail->minimum_price) {
+                // $codeDetail = CodeDetail::where('id', $promo->code_detail_id)->first();
+                // if ($totalPrice > $codeDetail->minimum_price) {
 
                     $add=Redeem::create([
                         'redeem_date' => now(),
@@ -169,10 +172,10 @@ class PromocodeController extends Controller
                         'promocode_id'=>$promo->id
                     ]);
 
-                    $promo->increment('redeem_count');
+                    // $promo->increment('redeem_count');
                     
-                    $discountAmount = $codeDetail->discount_amount;
-                    $discountedTotal = max(0, $totalPrice - $discountAmount);
+                    // $discountAmount = $codeDetail->discount_amount;
+                    // $discountedTotal = max(0, $totalPrice - $discountAmount);
     
                     session([
                         'applied_promo_code' => $promo,
@@ -181,10 +184,10 @@ class PromocodeController extends Controller
                     ]);
 
                     return redirect()->back()->with('success', 'Active promo code. Discount: $' . $discountAmount . ', Discounted Total: $' . $discountedTotal);
-                }
-                else{
-                    return redirect()->back()->with('error', 'Your total price does not reach the minimum price using this promo code');
-                }
+                // }
+                // else{
+                //     return redirect()->back()->with('error', 'Your total price does not reach the minimum price using this promo code');
+                // }
             } else {
                 return redirect()->back()->with('error', 'limit promo code.');
             }

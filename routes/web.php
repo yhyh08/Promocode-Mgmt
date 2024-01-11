@@ -35,6 +35,7 @@ Route::get('promocode/delete/{id}', 'PromocodeController@delete')->name('promoco
 Route::get('promocode/updateStatus', 'PromocodeController@updateStatus')->name('promocode.status');
 Route::post('promocode/apply', 'PromocodeController@applyPromoCode')->name('promocode.apply');
 Route::get('promocode/voucher/{id}', 'PromocodeController@viewVoucher')->name('promocode.voucher');
+Route::get('promocode/voucher/{id}/print', 'RedeemController@print')->name('voucher.print');
 
 Route::get('report', 'RedeemController@index')->name('redeem.index');
 Route::get('report/delete/{id}', 'RedeemController@delete')->name('redeem.delete');
@@ -54,6 +55,9 @@ Route::post('term_condition/store', 'TermConditionController@create')->name('ter
 Route::get('term_condition/edit/{id}', 'TermConditionController@edit')->name('termCondition.edit');
 Route::post('term_condition/update', 'TermConditionController@update')->name('termCondition.update');
 Route::get('term_condition/delete/{id}', 'TermConditionController@delete')->name('termCondition.delete');
+
+Route::get('/import-excel', 'ExcelImportController@index')->name('import.excel');
+Route::post('/import-excel', 'ExcelImportController@import')->name('import.excel');
 
 //code detail
 Route::get('code_detail/add', 'CodeDetailController@add')->name('codeDetail.add');

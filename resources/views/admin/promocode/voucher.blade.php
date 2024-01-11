@@ -6,20 +6,20 @@
     <div class="card bg-dark text-white text-center border-0">
         <img class="card-img" src="{{ asset('img/neutral.png') }}" width="300px" alt="voucher image">
         <div class="card-img-overlay row">
-            @foreach($detail as $detail)
+        @foreach($detail as $item)
                 <h2 class="card-title font-weight-bold text-secondary">
-                    {{$detail->discount_type_category}}
+                    {{ $item->discount_type_category }}
                 </h2> 
                 <h4 class="card-title text-danger">
-                    {{$detail->discount_type_type}}
+                    {{ $item->discount_type_type }}
                 </h4>  
                 <h3 class="card-title text-danger font-weight-bold">
-                    {{$detail->discount_amount}}
+                    {{ $item->discount_amount }}
                 </h3>
                 <div class="card-text text-body term-text">
                     <p class="card-text text-black-50">Terms and conditions</p>
-                    @foreach($detail->term_condition_id as $value => $label)
-                        {{$label}}<br>
+                    @foreach($item->term_condition_id as $value => $label)
+                        {{ $label }}<br>
                     @endforeach
                 </div>
             @endforeach
@@ -33,6 +33,10 @@
             <a href="" class="btn btn-success btn-xs d-inline-flex align-items-center px-4 "><i class="fs-4 bi-file-earmark-pdf pr-2"></i>Generate</a>
         </div>
     </div>
+</div>
+
+<div class="col text-right">
+    <a href="{{route('voucher.print', ['id'=>$item->id]) }}" class="btn btn-success btn-xs d-inline-flex align-items-center px-4 ">print</a>
 </div>
 
 @endsection    

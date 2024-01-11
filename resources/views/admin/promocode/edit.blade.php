@@ -11,7 +11,8 @@
             <div class="form-group">
                 <label for="status">Status</label>
                 <input type="hidden" name="id" value="{{$promo->id}}">
-                <input type="checkbox" data-id="{{ $promo->id }}" name="status" class="js-switch" {{ $promo->status == 1 ? 'checked' : '' }} >
+
+                <input type="checkbox" data-id="{{ $promo->id }}" name="status" class="js-switch" {{ $promo->status == 1 ? 'checked' : '' }}>
             </div>
 
             <div class="form-row">
@@ -86,6 +87,10 @@
     </div>
 </div>
 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 <script>
     let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 
@@ -98,12 +103,12 @@
             let status = $(this).prop('checked') === true ? 1 : 0;
             let codeId = $(this).data('id');
             $.ajax({
-                type: "GET",
+                method: "GET",
                 dataType: "json",
                 url: '{{ route('promocode.status') }}',
                 data: {'status': status, 'promoId': codeId},
                 success: function (data) {
-                    console.log(data.message);
+                    console.log('Error fetching details:', data);
                 }
             });
         });
@@ -129,7 +134,7 @@
                     $('#minimum_price').val(response.minimum_price);
                     $('#discount_amount').val(response.discount_amount);
                     $('#discount_type').val(response.discount_type_name);
-                    $('#term_condition').val(response.term_condition_title);
+                    // $('#term_condition').val(response.term_condition_title);
                 },
                 error: function(error) {
                     console.log('Error fetching details:', error);

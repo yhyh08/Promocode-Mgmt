@@ -55,7 +55,7 @@ class PromocodeController extends Controller
                 'minimum_price' => $detail->minimum_price,
                 'discount_amount' => $detail->discount_amount,
                 'discount_type_name' => $discount_type->name,
-                'term_condition_title' => $term_condition->title,
+                // 'term_condition_title' => $term_condition->title,
             ]);
         } else {
             return response()->json(['error' => 'Detail not found'], 404);

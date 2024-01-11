@@ -2,18 +2,17 @@
 
 @section('content')
 
-@if(Session::has('success'))
-    <div class="alert alert-success" role="aleart">
-        {{ Session::get('success') }}
-    </div>
-@else
-    <div class="alert alert-dangerous" role="aleart">
-        {{ Session::get('error') }}
-    </div>
-@endif
-
 <div class="container">
     <div class="row m-3">
+        @if(Session::has('success'))
+            <div class="alert alert-success" role="aleart">
+                {{ Session::get('success') }}
+            </div>
+        @else
+            <div class="alert alert-dangerous" role="aleart">
+                {{ Session::get('error') }}
+            </div>
+        @endif
         <h2 class="pb-2">Redeem</h2>
         <div class="card pl-0 pr-0" style="width: 18rem;">
             <img src="{{ asset('img/gift-voucher.png') }}" class="card-img-top" alt="">

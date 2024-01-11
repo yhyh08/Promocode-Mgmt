@@ -3,12 +3,13 @@
 @section('content')
 <div class="row">
     <div class="container-fluid m-5 all-view">
-        <a href="{{ url()->previous() }}" class="btn btn-info btn-xs d-inline-flex align-items-center mb-3"><i class="fs-4 bi-backspace pr-2"></i>Back</a>
-
+        <a href="{{ url()->previous() }}" class="btn btn-info btn-xs d-inline-flex align-items-center mb-3 mr-3"><i class="fs-4 bi-backspace pr-2"></i>Back</a>
+        
         <h3 class="pb-2">Show Detail Promo Code</h3>
         <form action="" method="" enctype="multipart/form-data">
             @foreach($promo as $promo)
-
+            <a href="{{ route('promocode.edit', ['id'=>$promo->id]) }}" class="clr-icon"><i class="fs-4 bi-pencil-square"></i></a>
+            
             <div class="form-group">
                 <input type="hidden" name="id" value="{{$promo->id}}">
             </div>
@@ -46,15 +47,15 @@
             </div>
 
             <div class="form-group">
-                <label for="status">Status</label>
-                <input type="checkbox" data-id="{{ $promo->id }}" name="status" readonly class="js-switch" {{ $promo->status == 1 ? 'checked' : '' }} >
+                <label for="status" style="margin-right: 10px;">Status</label>
+                <input data-id="{{$promo->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" {{ $promo->status == 1 ? 'checked' : '' }}> 
             </div>
 
             <div class="form-group">
 				<label for="detail">Code Detail</label>
                 <select id="detail" name="detail" class="form-control" readonly>
                     @foreach ($detail as $detail)
-                        <option value="" readonly>{{ $detail->discount_type_name }}</option>
+                        <option value="{{$detail->id}}" readonly>{{ $detail->discount_type_name }}</option>
                     @endforeach
                 </select>
                 <br>
@@ -85,7 +86,10 @@
     </div>
 </div>
 
-{{-- <script>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+<script>
     let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 
     elems.forEach(function(html) {
@@ -97,12 +101,12 @@
             let status = $(this).prop('checked') === true ? 1 : 0;
             let codeId = $(this).data('id');
             $.ajax({
-                type: "GET",
+                method: "GET",
                 dataType: "json",
                 url: '{{ route('promocode.status') }}',
                 data: {'status': status, 'promoId': codeId},
                 success: function (data) {
-                    console.log(data.message);
+                    console.log('Error fetching details:', data);
                 }
             });
         });
@@ -136,5 +140,6 @@
             });
         }
     });
-</script> --}}
+</script>
+
 @endsection

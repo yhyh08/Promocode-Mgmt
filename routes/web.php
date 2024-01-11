@@ -35,10 +35,12 @@ Route::get('promocode/delete/{id}', 'PromocodeController@delete')->name('promoco
 Route::get('promocode/updateStatus', 'PromocodeController@updateStatus')->name('promocode.status');
 Route::post('promocode/apply', 'PromocodeController@applyPromoCode')->name('promocode.apply');
 Route::get('promocode/voucher/{id}', 'PromocodeController@viewVoucher')->name('promocode.voucher');
-Route::get('promocode/voucher/{id}/print', 'RedeemController@print')->name('voucher.print');
+Route::get('promocode/voucher/{id}/print', 'PromocodeController@print')->name('promocode.voucher.print');
 
-Route::get('report', 'RedeemController@index')->name('redeem.index');
-Route::get('report/delete/{id}', 'RedeemController@delete')->name('redeem.delete');
+//redeem
+Route::get('redeem', 'RedeemController@view')->name('redeem');
+Route::get('promocode/redeemed', 'RedeemController@index')->name('promocode.redeemed');
+Route::get('promocode/redeemed/delete/{id}', 'RedeemController@delete')->name('promocode.redeem.delete');
 
 //discount type
 Route::get('discount_type/add', 'DiscountTypeController@add')->name('discountType.add');
@@ -67,8 +69,7 @@ Route::get('code_detail/edit/{id}', 'CodeDetailController@edit')->name('codeDeta
 Route::post('code_detail/update', 'CodeDetailController@update')->name('codeDetail.update');
 Route::get('code_detail/delete/{id}', 'CodeDetailController@delete')->name('codeDetail.delete');
 
-//redeem
-Route::get('promocode/redeemed', 'RedeemController@index')->name('promocode.redeemed');
-Route::get('redeem', 'RedeemController@view')->name('redeem');
+
+
 
 Auth::routes();

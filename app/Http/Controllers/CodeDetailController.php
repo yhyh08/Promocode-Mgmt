@@ -11,6 +11,10 @@ use App\Models\TermCondition;
 
 class CodeDetailController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');//require login before access
+    }
+    
     public function create() {
         $r=request();
         

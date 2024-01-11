@@ -9,6 +9,10 @@ use App\Models\DiscountType;
 
 class DiscountTypeController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');//require login before access
+    }
+    
     public function create(){
         $r=request();
 

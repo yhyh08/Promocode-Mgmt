@@ -1,4 +1,4 @@
-<p align="center"><a href="" target="_blank"><img src="/img/logo.png" width="400" alt="Logo"></a></p>
+<p align="center"><a href="" target="_blank"><img src="public\img\logo.png" width="400" alt="Logo"></a></p>
 
 ## Getting Started for Promocode Management System
 

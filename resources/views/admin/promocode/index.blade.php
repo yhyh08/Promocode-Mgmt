@@ -58,14 +58,6 @@
     </div>
 </div>
 
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script>let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-
-    elems.forEach(function(html) {
-        let switchery = new Switchery(html,  { size: 'small' });
-    });</script> -->
-
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 

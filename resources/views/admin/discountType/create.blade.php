@@ -17,7 +17,6 @@
                         <option value="{{ $value }}">{{ $label }}</option>
                     @endforeach
                 </select>
-				<!-- <input class="form-control" type="text" id="category" name="category" required> -->
             </div>
             <div class="form-group">
 				<label for="type">Type</label>
@@ -26,7 +25,6 @@
                         <option value="{{ $value }}">{{ $label }}</option>
                     @endforeach
                 </select>
-				<!-- <input class="form-control" type="text" id="type" name="type" required> -->
             </div>
             <div class="form-group">
                 <label for="remark">Remark</label>

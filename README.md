@@ -64,3 +64,18 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Getting Started
+
+*Run the commands below to install the composer and view*
+
+composer install
+npm i vue-loader
+npm run build
+
+*set up database*
+replace the .env.example to .env
+
+*Next, run the commands below to use the print pdf function and import excel function*
+composer require barryvdh/laravel-dompdf
+composer require maatwebsite/excel

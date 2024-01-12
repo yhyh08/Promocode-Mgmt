@@ -27,7 +27,7 @@ class PromocodeSeeder extends Seeder
                 'redeem_count'      => '0',
                 'limit'             => '5',
                 'expires_at'        => '2024-03-01 00:00:00',
-                'status'            => '2',
+                'status'            => '0',
                 'user_id'           => '1',
                 'code_detail_id'    => '2',
             ],

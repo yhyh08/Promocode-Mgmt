@@ -40,7 +40,7 @@
                     <input data-id="{{$promocodes->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" {{ $promocodes->status == 1 ? 'checked' : '' }}> 
                 </td>
                 <td>
-                    <a href="{{ route('promocode.detail.print', ['id'=>$promocodes->id]) }}" class="clr-icon"><i class="fs-4 bi-printer"></i></a>
+                    <a href="{{ route('promocode.voucher', ['id'=>$promocodes->id]) }}" class="clr-icon"><i class="fs-4 bi-printer"></i></a>
                 </td>
                 <td>
                     <a href="{{ route('promocode.shows', ['id'=>$promocodes->id]) }}" class="clr-icon"><i class="fs-4 bi-book"></i></a>

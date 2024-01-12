@@ -103,6 +103,7 @@ class PromocodeController extends Controller
     public function edit($id) {
         $promo=Promocode::all()->where('id' , $id);
 
+
         $detail=DB::table('code_details')
         ->leftJoin('discount_types', 'code_details.discount_type_id', '=', 'discount_types.id')
         ->leftJoin('term_conditions', 'code_details.term_condition_id', '=', 'term_conditions.id')

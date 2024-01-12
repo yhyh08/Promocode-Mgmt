@@ -50,7 +50,7 @@
 				<label for="detail">Code Detail</label>
                 <select id="detail" name="detail" class="form-control">
                     @foreach ($detail as $detail)
-                        <option value="{{ $detail->id }}">{{ $detail->discount_type_name }}</option>
+                        <option value="{{ $detail->id }}" {{ $promo->code_detail_id == $detail->id ? 'selected' : '' }}>{{ $detail->discount_type_name }}</option>
                     @endforeach
                 </select>
                 <br>

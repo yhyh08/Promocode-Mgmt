@@ -43,7 +43,7 @@
             
             <div class="form-group">
                 <label for="expired_date">Expired Date</label>
-                <input class="form-control" type="date" id="expired_date" name="expired_date" value="{{$promo->expires_at}}" readonly>
+                <input class="form-control" type="text" id="expired_date" name="expired_date" value="{{$promo->expires_at}}" readonly>
             </div>
 
             <div class="form-group">

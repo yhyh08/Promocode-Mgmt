@@ -69,7 +69,4 @@ Route::get('code_detail/edit/{id}', 'CodeDetailController@edit')->name('codeDeta
 Route::post('code_detail/update', 'CodeDetailController@update')->name('codeDetail.update');
 Route::get('code_detail/delete/{id}', 'CodeDetailController@delete')->name('codeDetail.delete');
 
-
-
-
 Auth::routes();

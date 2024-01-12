@@ -98,3 +98,14 @@ body {
 }
 /* End Voucher */
 
+/* Redeem */
+.redeem-success{
+    color: #166534 !important;
+    font-size: 18px;
+}
+
+.redeem-error{
+   color: #F43F5E !important;
+   font-size: 18px;
+}
+/* End Redeem */

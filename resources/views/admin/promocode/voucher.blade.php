@@ -30,7 +30,7 @@
             <a href="{{ route('promocode.index') }}" class="btn btn-light btn-xs d-inline-flex align-items-center px-4 "><i class="fs-4 bi-backspace pr-2"></i>Back</a>
         </div>
         <div class="col text-right">
-            <a href="{{route('promocode.voucher.print', ['id'=>$item->id]) }}" class="btn btn-success btn-xs d-inline-flex align-items-center px-4 "><i class="fs-4 bi-file-earmark-pdf pr-2"></i>Generate</a>
+            <a href="{{route('promocode.voucher.print', ['id'=>$item->id],'print') }}" class="btn btn-success btn-xs d-inline-flex align-items-center px-4 "><i class="fs-4 bi-file-earmark-pdf pr-2"></i>Generate</a>
         </div>
     </div>
 </div>

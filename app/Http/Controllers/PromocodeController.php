@@ -172,7 +172,7 @@ class PromocodeController extends Controller
                     return redirect()->back()->with('success', 'Active promo code.');
                     
             } else {
-                return redirect()->back()->with('error', 'limit promo code.');
+                return redirect()->back()->with('error', 'Limit promo code.');
             }
         } else {
             return redirect()->back()->with('error', 'Invalid promo code.');

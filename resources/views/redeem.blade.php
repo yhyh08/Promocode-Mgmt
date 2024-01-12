@@ -5,11 +5,11 @@
 <div class="container">
     <div class="row m-3">
         @if(Session::has('success'))
-            <div class="alert alert-success" role="aleart">
+            <div class="alert alert-success redeem-success" role="alert">
                 {{ Session::get('success') }}
             </div>
         @else
-            <div class="alert alert-dangerous" role="aleart">
+            <div class="alert alert-dangerous redeem-error" role="alert">
                 {{ Session::get('error') }}
             </div>
         @endif
@@ -30,7 +30,4 @@
         </div>
     </div>
 
-        
-
 @endsection
-

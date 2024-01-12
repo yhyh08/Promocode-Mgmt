@@ -176,7 +176,7 @@ class PromocodeController extends Controller
                         'promocode_id'=>$promo->id
                     ]);
 
-                    // $promo->increment('redeem_count');
+                    $promo->increment('redeem_count');
                     
                     // $discountAmount = $codeDetail->discount_amount;
                     // $discountedTotal = max(0, $totalPrice - $discountAmount);
@@ -187,13 +187,13 @@ class PromocodeController extends Controller
                     //     'original_total' => $totalPrice,
                     // ]);
 
-                    return redirect()->back()->with('success', 'Active promo code.');
+                    return redirect()->back()->with('success', 'Redeem Success.');
                 // }
                 // else{
                 //     return redirect()->back()->with('error', 'Your total price does not reach the minimum price using this promo code');
                 // }
             } else {
-                return redirect()->back()->with('error', 'limit promo code.');
+                return redirect()->back()->with('error', 'Limit promo code.');
             }
         } else {
             return redirect()->back()->with('error', 'Invalid promo code.');

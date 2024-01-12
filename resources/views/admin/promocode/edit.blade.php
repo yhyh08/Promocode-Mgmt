@@ -43,7 +43,7 @@
             
             <div class="form-group">
                 <label for="expired_date">Expired Date</label>
-                <input class="form-control" type="date" id="expired_date" name="expired_date" value="{{$promo->expires_at}}" required>
+                <input class="form-control" type="datetime-local" id="expired_date" name="expired_date" value="{{$promo->expires_at}}" required>
             </div>
 
             <div class="form-group">

@@ -10,78 +10,65 @@
         <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script> 
-        
     </head>
-
+    
     <body>
-        <div class="container-fluid">
+        <div class="container-fluid w-80">
             <div class="row">
                 <div class="container-fluid m-5 all-view">                    
                     <h3 class="pb-2">Promo Code Detail </h3>
-                    <form action="" method="" enctype="multipart/form-data">
-                        
-                        <div class="form-group">
-                            <input type="hidden" name="id" value="{{$promo->id}}">
-                        </div>
-
-                        <div class="form-row">
-                            <div class="col">
-                                <label for="codeName">Name</label>
-                                <input class="form-control" type="text" id="codeName" name="codeName" value="{{$promo->name}}" readonly> 
-                            </div>
-                            <div class="col">
-                                <label for="code">code</label>
-                                <input id="code" class="form-control" type="text" value="{{ $promo->code }}" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="codeDescription">Description</label>
-                            <input class="form-control" type="text" id="codeDescription" name="codeDescription" value="{{$promo->description}}" readonly>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="count">Redeem Count</label>
-                            <input class="form-control" type="text" id="count" name="count" value="{{$promo->redeem_count}}" readonly> 
-                        </div>
-                        <div class="form-group">
-                            <label for="limit">Redeem Limit</label>
-                            <input class="form-control" type="text" id="limit" name="limit" value="{{ $promo->limit }}"readonly >
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="expired_date">Expired Date</label>
-                            <input class="form-control" type="text" id="expired_date" name="expired_date" value="{{$promo->expires_at}}" readonly>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="detail">Code Detail</label>
-                            <input class="form-control" type="text" id="detail" name="detail" value="{{ $type->name }}" readonly>
-
-                            
-                            <div class="form-group">
-                                <label for="price">Minimum Price</label>
-                                <input class="form-control" type="text" value="{{ $detail->minimum_price }}" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="amount">Discount Amount</label>
-                                <input class="form-control" type="text" value="{{ $detail->discount_amount }}" readonly>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="type">Discount Type</label>
-                                <input class="form-control" type="text" value="{{ $type->name}}" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="condition">Term condition</label>
-                                <input class="form-control" type="text" value="{{ $term}}" readonly>
-                            </div>
-                        </div>
-                        
-                    </form>
+                    <table class="table table-striped ">
+                        <tr>
+                            <th>ID</th>
+                            <td>{{ $promo->id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Name</th>
+                            <td>{{ $promo->name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Code</th>
+                            <td>{{ $promo->code }}</td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>{{ $promo->description }}</td>
+                        </tr>
+                        <tr>
+                            <th>Redeem Count</th>
+                            <td>{{ $promo->redeem_count }}</td>
+                        </tr>
+                        <tr>
+                            <th>Redeem Limit</th>
+                            <td>{{ $promo->limit }}</td>
+                        </tr>
+                        <tr>
+                            <th>Expired Date</th>
+                            <td>{{ $promo->expires_at }}</td>
+                        </tr>
+                        <tr>
+                            <th>Code Detail</th>
+                            <td>{{ $type->name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Minimum Price</th>
+                            <td>{{ $detail->minimum_price }}</td>
+                        </tr>
+                        <tr>
+                            <th>Discount Amount</th>
+                            <td>{{ $detail->discount_amount }}</td>
+                        </tr>
+                        <tr>
+                            <th>Discount Type</th>
+                            <td>{{ $type->name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Term condition</th>
+                            <td>{{ $term }}</td>
+                        </tr>
+                    </table>
                 </div>      
             </div>
         </div>
     </body>
 </html>
-

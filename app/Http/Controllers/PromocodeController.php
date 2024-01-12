@@ -11,14 +11,13 @@ use App\Models\CodeDetail;
 use App\Models\DiscountType;
 use App\Models\TermCondition;
 use App\Models\Redeem;
-use App\PDFGenerate;
 use Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class PromocodeController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth');//require login before access
+        $this->middleware('auth'); //require login before access
     }
 
     public function create() {
@@ -208,8 +207,6 @@ class PromocodeController extends Controller
         $detail->each(function ($detail) {
             $detail->discount_type_type = DiscountType::TYPE_SELECT[$detail->discount_type_type];
         });
-
-        // PDFGenerate::create($detail);
 
         return view('admin.promocode.voucher')
         ->with('promo', $promo)

@@ -3,6 +3,8 @@
 @section('content')
 
 <div class="container w-50 mt-5">
+    <a href="{{ url()->previous() }}" class="btn btn-light btn-xs d-inline-flex align-items-center mb-3"><i class="fs-4 bi-backspace pr-2"></i>Back</a>
+
     <div class="card bg-dark text-white text-center border-0">
         <img class="card-img" src="{{ asset('img/neutral.png') }}" width="300px" alt="voucher image">
         <div class="card-img-overlay row">
@@ -27,4 +29,4 @@
     </div>
 </div>
 
-@endsection    
+@endsection

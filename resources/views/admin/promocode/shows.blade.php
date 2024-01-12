@@ -84,9 +84,9 @@
             @endforeach
         </form>
 
-        <div class="row">
+        <div class="row mt-5">
             <div class="col">
-                <a href="{{route('promocode.detail.viewPrint', ['id'=>$promo->id]) }}" class="btn btn-success btn-xs d-inline-flex align-items-center px-4 "><i class="fs-4 bi-file-earmark-pdf pr-2"></i>View Print</a>
+                <a href="{{route('promocode.detail.viewPrint', ['id'=>$promo->id]) }}" class="btn btn-success btn-xs d-inline-flex align-items-center px-4 "><i class="fs-4 bi-file-earmark-ppt pr-2"></i>View Print</a>
             </div>
             <div class="col text-right">
                 <a href="{{route('promocode.detail.print', ['id'=>$promo->id]) }}" class="btn btn-success btn-xs d-inline-flex align-items-center px-4 "><i class="fs-4 bi-file-earmark-pdf pr-2"></i>Generate</a>
@@ -100,7 +100,6 @@
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
 <script>
-
     $(document).ready(function(){
         $('.toggle-class').change(function () {
             let status = $(this).prop('checked') === true ? 1 : 0;

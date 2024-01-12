@@ -13,6 +13,8 @@
                 {{ Session::get('error') }}
             </div>
         @endif
+        <a href="{{ url()->previous() }}" class="d-inline-flex align-items-center mb-3 text-back"><i class="fs-4 bi-backspace pr-2"></i>Back</a>
+
         <h2 class="pb-2">Redeem</h2>
         <div class="card pl-0 pr-0" style="width: 18rem;">
             <img src="{{ asset('img/gift-voucher.png') }}" class="card-img-top" alt="">

@@ -22,13 +22,13 @@ class DiscountTypeSeeder extends Seeder
                 'remark'      => 'coupons',
             ],
             [
-                'name'        => 'Discount Price',
+                'name'        => 'Discount Price 1',
                 'category'    => '2',
                 'type'        => '1',
                 'remark'      => 'vouchers',
             ],
             [
-                'name'        => 'Discount Percentage',
+                'name'        => 'Discount Percentage 2',
                 'category'    => '2',
                 'type'        => '2',
                 'remark'      => 'vouchers',

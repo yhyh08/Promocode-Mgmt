@@ -10,8 +10,9 @@
 
 ### Set up database
 - replace the .env.example to .env
+- create a database
 
-### Seeder the data into your database
+### Can seeder the data into your database
 - php artisan db:seed
 
 ### Run the commands below to use the print pdf function and import excel function

@@ -8,7 +8,7 @@
     <div class="card bg-dark text-white text-center border-0">
         <img class="card-img" src="{{ asset('img/neutral.png') }}" width="300px" alt="voucher image">
         <div class="card-img-overlay row">
-        @foreach($detail as $item)
+            @foreach($detail as $item)
                 <h2 class="card-title font-weight-bold text-secondary">
                     {{ $item->discount_type_category }}
                 </h2> 

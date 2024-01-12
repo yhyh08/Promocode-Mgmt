@@ -20,7 +20,7 @@
                 <th>Redeem Count</th>
                 <th>Expires At</th>
                 <th>Status</th>
-                <th>Print</th>
+                <th>Layout</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -34,13 +34,10 @@
                 <td>{{$promocodes->redeem_count}}</td>
                 <td>{{$promocodes->expires_at}}</td>
                 <td>
-                
-                    <!-- <input type="checkbox" data-id="{{ $promocodes->id }}" name="status" class="js-switch" {{ $promocodes->status == 1 ? 'checked' : '' }}> -->
-
                     <input data-id="{{$promocodes->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" {{ $promocodes->status == 1 ? 'checked' : '' }}> 
                 </td>
                 <td>
-                    <a href="{{ route('promocode.voucher', ['id'=>$promocodes->id]) }}" class="clr-icon"><i class="fs-4 bi-printer"></i></a>
+                    <a href="{{ route('promocode.voucher', ['id'=>$promocodes->id]) }}" class="clr-icon"><i class="fs-4 bi-window"></i></a>
                 </td>
                 <td>
                     <a href="{{ route('promocode.shows', ['id'=>$promocodes->id]) }}" class="clr-icon"><i class="fs-4 bi-book"></i></a>

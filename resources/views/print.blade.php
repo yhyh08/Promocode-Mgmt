@@ -8,16 +8,21 @@
         
         <link rel="dns-prefetch" href="//fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+        <link rel="icon" href="{{asset('img/sitelogo.png')}}">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script> 
     </head>
-    
+    <style>
+        .print-view{
+            width: 80%;
+        }
+    </style>
     <body>
-        <div class="container-fluid w-80">
+        <div class="container-fluid">
             <div class="row">
-                <div class="container-fluid m-5 all-view">                    
+                <div class="container-fluid m-5 print-view">                    
                     <h3 class="pb-2">Promo Code Detail </h3>
-                    <table class="table table-striped ">
+                    <table class="table table-striped w-80 ">
                         <tr>
                             <th>ID</th>
                             <td>{{ $promo->id }}</td>

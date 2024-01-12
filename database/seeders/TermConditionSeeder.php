@@ -39,7 +39,7 @@ class TermConditionSeeder extends Seeder
             ],
             [
                 'title'      => 'Terms 8',
-                'content'    => 'This voucher is non-transferable and can only be used by the account holder',
+                'content'    => 'Not applicable in West Malaysia',
             ],
             [
                 'title'      => 'Terms 9',
@@ -47,11 +47,11 @@ class TermConditionSeeder extends Seeder
             ],
             [
                 'title'      => 'Terms 10',
-                'content'    => 'This voucher is non-transferable and can only be used by the account holder',
+                'content'    => 'This coupon is non-transferable and can only be used by the account holder',
             ],
             [
                 'title'      => 'Terms 11',
-                'content'    => 'This voucher is non-transferable and can only be used by the account holder',
+                'content'    => 'This voucher is non-transferable',
             ],
         ];
         TermCondition::insert($termCondition);

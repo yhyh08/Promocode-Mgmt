@@ -11,6 +11,7 @@ use App\Models\CodeDetail;
 use App\Models\DiscountType;
 use App\Models\TermCondition;
 use App\Models\Redeem;
+use App\PDFGenerate;
 use Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -170,7 +171,7 @@ class PromocodeController extends Controller
 
                     $promo->increment('redeem_count');
 
-                    return redirect()->back()->with('success', 'Active promo code.');
+                    return redirect()->back()->with('success', 'Redeem Success.');
                     
             } else {
                 return redirect()->back()->with('error', 'Limit promo code.');
@@ -207,6 +208,8 @@ class PromocodeController extends Controller
         $detail->each(function ($detail) {
             $detail->discount_type_type = DiscountType::TYPE_SELECT[$detail->discount_type_type];
         });
+
+        // PDFGenerate::create($detail);
 
         return view('admin.promocode.voucher')
         ->with('promo', $promo)

@@ -68,7 +68,7 @@ class DiscountTypeController extends Controller
         $type->type=$r->type;
         $type->remark=($r->remark == null) ? '' : $r->remark;
         $type->save();
-        // dd($product);
+        
         return redirect()->route('discountType.index');
     }
 

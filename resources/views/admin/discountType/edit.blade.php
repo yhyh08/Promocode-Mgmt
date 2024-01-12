@@ -20,7 +20,6 @@
                     @endforeach
                 </select>
             </div>
-            <!-- <input class="form-control" type="text" id="category" name="category" required value="{{$type->category}}">  -->
             <div class="form-group">
                 <label for="type">Discount Type</label>
                 <select name="type" class="form-control">
@@ -28,7 +27,6 @@
                         <option value="{{ $value }}" {{ $type->type == $value ? 'selected' : '' }}>{{ $label }}</option>
                     @endforeach
                 </select>
-            <!-- <input class="form-control" type="text" id="type" name="type" required value="{{$type->type}}"> -->
             </div>
             <div class="form-group">
                 <label for="remark">Remark</label>

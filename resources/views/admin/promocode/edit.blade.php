@@ -12,7 +12,6 @@
                 <label for="status" style="margin-right: 10px;">Status</label>
                 <input type="hidden" name="id" value="{{$promo->id}}">
                 <input data-id="{{$promo->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" {{ $promo->status == 1 ? 'checked' : '' }}> 
-                <!-- <input type="checkbox" data-id="{{ $promo->id }}" name="status" class="js-switch" {{ $promo->status == 1 ? 'checked' : '' }}> -->
             </div>
 
             <div class="form-row">
@@ -92,14 +91,9 @@
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
 <script>
-    let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-
-    elems.forEach(function(html) {
-        let switchery = new Switchery(html,  { size: 'small' });
-    });
 
     $(document).ready(function(){
-        $('.js-switch').change(function () {
+        $('.toggle-class').change(function () {
             let status = $(this).prop('checked') === true ? 1 : 0;
             let codeId = $(this).data('id');
             $.ajax({

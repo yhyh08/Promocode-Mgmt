@@ -90,14 +90,9 @@
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
 <script>
-    let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-
-    elems.forEach(function(html) {
-        let switchery = new Switchery(html,  { size: 'small' });
-    });
 
     $(document).ready(function(){
-        $('.js-switch').change(function () {
+        $('.toggle-class').change(function () {
             let status = $(this).prop('checked') === true ? 1 : 0;
             let codeId = $(this).data('id');
             $.ajax({

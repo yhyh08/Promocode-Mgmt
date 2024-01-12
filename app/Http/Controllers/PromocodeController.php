@@ -169,7 +169,7 @@ class PromocodeController extends Controller
 
                     $promo->increment('redeem_count');
 
-                    return redirect()->back()->with('success', 'Active promo code.');
+                    return redirect()->back()->with('success', 'Redeem Success.');
                     
             } else {
                 return redirect()->back()->with('error', 'Limit promo code.');

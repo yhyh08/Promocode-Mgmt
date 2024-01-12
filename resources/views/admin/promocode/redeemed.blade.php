@@ -28,7 +28,7 @@
                     <td>{{$redeems->code}}</td>
                     <td>{{$redeems->redeem_date}}</td>
                     <td>
-                        <a href="{{ route('redeem.delete', ['id'=>$redeems->id] ) }}" class="clr-icon" onclick="return confirm('Are you sure need to delete')"><i class="fs-4 bi-trash3"></i></a>
+                        <a href="{{ route('promocode.redeem.delete', ['id'=>$redeems->id] ) }}" class="clr-icon" onclick="return confirm('Are you sure need to delete')"><i class="fs-4 bi-trash3"></i></a>
                     </td>
                 </tr>
                 @endforeach

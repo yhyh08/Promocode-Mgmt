@@ -33,7 +33,7 @@ class RedeemController extends Controller
     public function delete($id) {
         $redeem=Redeem::find($id);
         $redeem->delete(); 
-        return redirect()->route('redeem.index');
+        return redirect()->route('promocode.redeemed');
     }
 
 }

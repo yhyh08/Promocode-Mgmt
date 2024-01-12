@@ -133,25 +133,20 @@ class PromocodeController extends Controller
     }
 
     public function updateStatus(Request $request) {
-        // dd();
+
         $promo = Promocode::findOrFail($request->promoId);
         $promo->status = $request->status;
         $promo->save();
         
-        // return response()->json(['message' => 'Status updated successfully.']);
     }
 
     public function applyPromoCode() {
         $r=request();
-        
-        // $totalPrice = $r->sub;
 
         $promo = Promocode::where('code', $r->code)
             ->where('status', '1')
             ->where('expires_at', '>', now())
             ->first();
-
-       
 
         if ($promo) {
 
@@ -165,10 +160,6 @@ class PromocodeController extends Controller
             }
             // Check usage limit
             if ($promo->limit === null || $promo->redeem_count < $promo->limit) {
-                    
-                //Check the price with the promocode's minimun price 
-                // $codeDetail = CodeDetail::where('id', $promo->code_detail_id)->first();
-                // if ($totalPrice > $codeDetail->minimum_price) {
 
                     $add=Redeem::create([
                         'redeem_date' => now(),
@@ -176,22 +167,10 @@ class PromocodeController extends Controller
                         'promocode_id'=>$promo->id
                     ]);
 
-                    // $promo->increment('redeem_count');
-                    
-                    // $discountAmount = $codeDetail->discount_amount;
-                    // $discountedTotal = max(0, $totalPrice - $discountAmount);
-    
-                    // session([
-                    //     'applied_promo_code' => $promo,
-                    //     'discounted_total' => $discountedTotal,
-                    //     'original_total' => $totalPrice,
-                    // ]);
+                    $promo->increment('redeem_count');
 
                     return redirect()->back()->with('success', 'Active promo code.');
-                // }
-                // else{
-                //     return redirect()->back()->with('error', 'Your total price does not reach the minimum price using this promo code');
-                // }
+                    
             } else {
                 return redirect()->back()->with('error', 'limit promo code.');
             }

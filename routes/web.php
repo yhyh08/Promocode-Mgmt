@@ -35,7 +35,8 @@ Route::get('promocode/delete/{id}', 'PromocodeController@delete')->name('promoco
 Route::get('promocode/updateStatus', 'PromocodeController@updateStatus')->name('promocode.status');
 Route::post('promocode/apply', 'PromocodeController@applyPromoCode')->name('promocode.apply');
 Route::get('promocode/voucher/{id}', 'PromocodeController@viewVoucher')->name('promocode.voucher');
-Route::get('promocode/voucher/{id}/print', 'PromocodeController@print')->name('promocode.voucher.print');
+Route::get('promocode/shows/{id}/print', 'PromocodeController@print')->name('promocode.detail.print');
+Route::get('promocode/shows/{id}/viewPrint', 'PromocodeController@viewPrint')->name('promocode.detail.viewPrint');
 
 //redeem
 Route::get('redeem', 'RedeemController@view')->name('redeem');

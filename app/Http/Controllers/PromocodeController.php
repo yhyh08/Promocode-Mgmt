@@ -12,6 +12,7 @@ use App\Models\DiscountType;
 use App\Models\TermCondition;
 use App\Models\Redeem;
 use Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PromocodeController extends Controller
 {
@@ -213,34 +214,47 @@ class PromocodeController extends Controller
     }
 
     public function print($id) {
-        $promo=Promocode::all()->where('id' , $id);
-
-        $detail=DB::table('code_details')
-        ->leftJoin('discount_types', 'code_details.discount_type_id', '=', 'discount_types.id')
-        ->leftJoin('term_conditions', 'code_details.term_condition_id', '=', 'term_conditions.id')
-        ->select('code_details.*', 'discount_types.category as discount_type_category', 
-        'discount_types.type as discount_type_type', 'term_conditions.content as term_condition_content')
-        ->where('code_details.id' , $id)
-        ->get();
+        $promo=Promocode::find($id);
         
-        $detail->transform(function ($detail) {
-            $detail->term_condition_id = collect(json_decode($detail->term_condition_id))
-            ->map(function ($conditionId) {
-                return TermCondition::find($conditionId)->content ?? ' ';
-            })->toArray();
+        $detail= CodeDetail::find($promo->code_detail_id);
 
-            return $detail;
-        });
+        $type=DiscountType::find($detail->discount_type_id);
+        
+        $term = collect(json_decode($detail->term_condition_id))
+        ->map(function ($conditionId) {
+            return TermCondition::find($conditionId)->title ?? ' ';
+        })->implode(', ');
+        
+        $data = [
+            'promo'  => $promo,
+            'detail' => $detail,
+            'type' => $type,
+            'term' => $term
+        ];
 
-        $detail->each(function ($detail) {
-            $detail->discount_type_category = DiscountType::CATEGORY_SELECT[$detail->discount_type_category];
-        });
-
-        $detail->each(function ($detail) {
-            $detail->discount_type_type = DiscountType::TYPE_SELECT[$detail->discount_type_type];
-        });
-
-        $pdf = PDF::loadView('admin.promocode.voucher', ['detail' => $detail->toArray()]);
+        $pdf = PDF::loadView('print', $data);
         return $pdf->download('voucher.pdf');
+    }
+
+    public function viewPrint($id) {
+        $promo=Promocode::find($id);
+        
+        $detail= CodeDetail::find($promo->code_detail_id);
+
+        $type=DiscountType::find($detail->discount_type_id);
+
+        $term = collect(json_decode($detail->term_condition_id))
+        ->map(function ($conditionId) {
+            return TermCondition::find($conditionId)->title ?? ' ';
+        })->implode(', ');
+
+        $data = [
+            'promo'  => $promo,
+            'detail' => $detail,
+            'type' => $type,
+            'term' => $term
+        ];
+
+        return view('print', $data);
     }
 }

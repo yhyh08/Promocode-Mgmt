@@ -83,6 +83,16 @@
             </div>
             @endforeach
         </form>
+
+        <div class="row">
+            <div class="col">
+                <a href="{{route('promocode.detail.viewPrint', ['id'=>$promo->id]) }}" class="btn btn-success btn-xs d-inline-flex align-items-center px-4 "><i class="fs-4 bi-file-earmark-pdf pr-2"></i>View Print</a>
+            </div>
+            <div class="col text-right">
+                <a href="{{route('promocode.detail.print', ['id'=>$promo->id]) }}" class="btn btn-success btn-xs d-inline-flex align-items-center px-4 "><i class="fs-4 bi-file-earmark-pdf pr-2"></i>Generate</a>
+            </div>
+        </div>
+        
     </div>
 </div>
 

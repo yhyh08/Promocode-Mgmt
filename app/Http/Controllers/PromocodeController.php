@@ -33,7 +33,7 @@ class PromocodeController extends Controller
             'user_id'=>'1',
             'code_detail_id'=>$r->detail
         ]);
-        // Session::flash('success', "New Code added");
+        
         return redirect()->route('promocode.index');
     }
 

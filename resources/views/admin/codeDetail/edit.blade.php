@@ -23,7 +23,6 @@
                         <option  value="{{ $type->id }}" {{ $detail->discount_type_id == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
                     @endforeach
                 </select>
-                <!-- <input class="form-control" type="text" id="category" name="category" required value="{{$type->category}}">  -->
             </div>
             <div class="form-group">
                 <label for="condition">Terms and Conditions</label>

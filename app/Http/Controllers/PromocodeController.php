@@ -11,6 +11,7 @@ use App\Models\CodeDetail;
 use App\Models\DiscountType;
 use App\Models\TermCondition;
 use App\Models\Redeem;
+use App\PDFGenerate;
 use Auth;
 
 class PromocodeController extends Controller
@@ -228,13 +229,15 @@ class PromocodeController extends Controller
             $detail->discount_type_type = DiscountType::TYPE_SELECT[$detail->discount_type_type];
         });
 
+        // PDFGenerate::create($detail);
+
         return view('admin.promocode.voucher')
         ->with('promo', $promo)
         ->with('detail',$detail);
     }
 
     public function print($id) {
-        $promo=Promocode::all()->where('id' , $id);
+        // $promo=Promocode::all()->where('id' , $id);
 
         $detail=DB::table('code_details')
         ->leftJoin('discount_types', 'code_details.discount_type_id', '=', 'discount_types.id')
@@ -262,6 +265,6 @@ class PromocodeController extends Controller
         });
 
         $pdf = PDF::loadView('admin.promocode.voucher', ['detail' => $detail->toArray()]);
-        return $pdf->download('voucher.pdf');
+        return $pdf->download('voucher.pdf'); 
     }
 }

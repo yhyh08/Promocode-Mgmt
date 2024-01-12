@@ -17,3 +17,6 @@
 ### Run the commands below to use the print pdf function and import excel function
 - composer require barryvdh/laravel-dompdf
 - composer require maatwebsite/excel
+
+### Sample Excel upload to T&C 
+- in root file name as Terms sample.xlsx

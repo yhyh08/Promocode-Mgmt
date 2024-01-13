@@ -248,7 +248,7 @@ class PromocodeController extends Controller
         ];
 
         $pdf = PDF::loadView('voucherPrint', $data);
-        return $pdf->download('voucher.pdf');
+        return $pdf->download('Voucher.pdf');
     }
 
     public function print($id) {

@@ -18,6 +18,9 @@
                 <h3 class="card-title text-danger font-weight-bold">
                     {{ $item->discount_amount }}
                 </h3>
+                @foreach($promo as $promocode)
+                    <p class="text-black-50">Expired: {{ $promocode->expires_at }}</p>
+                @endforeach
                 <div class="card-text text-body term-text">
                     <p class="card-text text-black-50">Terms and conditions</p>
                     @foreach($item->term_condition_id as $value => $label)

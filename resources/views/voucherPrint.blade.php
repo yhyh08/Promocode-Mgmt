@@ -10,13 +10,14 @@
         <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
         <link rel="icon" href="{{asset('img/sitelogo.png')}}">
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script> 
-        {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
     </head>
     <style>
         .term-text{
             font-size: 10px;
+        }
+        .exp-text{
+            font-size: 12px;
         }
     </style>
     <body>
@@ -35,6 +36,9 @@
                         <h3 class="card-title text-danger font-weight-bold">
                             {{ $item->discount_amount }}
                         </h3>
+                        @foreach($promo as $promocode)
+                            <p class="text-black-50 exp-text">Expired: {{ $promocode->expires_at }}</p>
+                        @endforeach
                         <div class="card-text text-body term-text">
                             <p class="card-text text-black-50">Terms and conditions</p>
                             @foreach($item->term_condition_id as $value => $label)

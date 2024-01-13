@@ -10,7 +10,7 @@
 
 ### Set up database
 - replace the .env.example to .env
-- create a database
+- php artisan migrate
 
 ### Can seeder the data into your database
 - php artisan db:seed

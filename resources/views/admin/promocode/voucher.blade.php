@@ -27,6 +27,12 @@
             @endforeach
         </div>
     </div>
+
+    <div class="row mt-5">
+        <div class="col text-center">
+            <a href="{{route('promocode.voucherPrint', ['id'=>$item->id]) }}" class="btn btn-success btn-xs d-inline-flex align-items-center px-4 "><i class="fs-4 bi-file-earmark-pdf pr-2"></i>Generate</a>
+        </div>
+    </div>
 </div>
 
 @endsection

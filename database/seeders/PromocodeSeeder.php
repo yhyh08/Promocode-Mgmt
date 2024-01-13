@@ -21,7 +21,7 @@ class PromocodeSeeder extends Seeder
                 'code_detail_id'    => '1',
             ],
             [
-                'name'              => 'Promocode 1',
+                'name'              => 'Promocode 2',
                 'description'       => 'Description Discount for use in Store only',
                 'code'              => 'rtb9ajsb',
                 'redeem_count'      => '0',

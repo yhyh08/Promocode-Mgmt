@@ -23,6 +23,8 @@
                 <div class="container-fluid m-5 print-view">                    
                     <h3 class="pb-2">Promo Code Detail </h3>
                     <table class="table table-striped w-80 ">
+                        <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/gift-voucher.png'))) }}" width="200px" class="mb-3">
+
                         <tr>
                             <th>ID</th>
                             <td>{{ $promo->id }}</td>
